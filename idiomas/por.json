@@ -1,0 +1,153 @@
+{
+    "pageTitle": "EDULINE - Perfeccionando seu aprendizado",
+    
+    "nav": {
+        "home": "Início",
+        "features": "Características",
+        "plans": "Planos",
+        "contact": "Contato",
+        "getStarted": "Começar Agora"
+    },
+    
+    "banner": {
+        "title": "EDULINE",
+        "subtitle": "Perfeccionando seu aprendizado com tecnologia avançada",
+        "getStarted": "Começar Agora",
+        "learnMore": "Ver Mais"
+    },
+    
+    "features": {
+        "title": "O que Oferecemos?",
+        "subtitle": "Transformando a educação com soluções inovadoras projetadas para o sucesso estudantil",
+        
+        "practicality": {
+            "title": "Praticidade",
+            "description": "Acesse conteúdo educacional de qualquer dispositivo, a qualquer momento. Plataforma intuitiva projetada para facilitar seu aprendizado.",
+            "list1": "Acesso 24/7",
+            "list2": "Interface amigável",
+            "list3": "Multiplataforma"
+        },
+        
+        "professionalism": {
+            "title": "Profissionalismo",
+            "description": "Conteúdo criado por especialistas em educação e pedagogia. Garantimos qualidade e atualização constante de materiais.",
+            "list1": "Especialistas certificados",
+            "list2": "Conteúdo atualizado",
+            "list3": "Acompanhamento personalizado"
+        },
+        
+        "technology": {
+            "title": "Tecnologia Especializada",
+            "description": "Utilizamos IA e análise de dados para personalizar sua experiência de aprendizado e maximizar seus resultados.",
+            "list1": "Inteligência Artificial",
+            "list2": "Análise de progresso",
+            "list3": "Adaptação inteligente"
+        }
+    },
+    
+    "carousel": {
+        "slide1": {
+            "title": "Aprendizado Interativo",
+            "description": "Experiências educacionais envolventes que capturam sua atenção"
+        },
+        "slide2": {
+            "title": "Tecnologia Avançada",
+            "description": "Ferramentas de ponta para o aprendizado do século XXI"
+        },
+        "slide3": {
+            "title": "Comunidade Global",
+            "description": "Conecte-se com estudantes e profissionais ao redor do mundo"
+        }
+    },
+    
+    "plans": {
+        "title": "Planos de Assinatura",
+        "subtitle": "Escolha o plano que melhor atende às suas necessidades educacionais",
+        "perMonth": "/mês",
+        "choosePlan": "Escolher Plano",
+        "startToday": "Começar Hoje",
+        
+        "basic": {
+            "title": "Plano Básico",
+            "tagline": "Ideal para começar",
+            "feature1": "Acesso a cursos básicos",
+            "feature2": "5 horas de tutoria mensal",
+            "feature3": "Material para download",
+            "feature4": "Suporte por email",
+            "feature5": "Certificados de conclusão"
+        },
+        
+        "standard": {
+            "title": "Plano Padrão",
+            "tagline": "Mais popular",
+            "feature1": "Todos os cursos básicos",
+            "feature2": "15 horas de tutoria mensal",
+            "feature3": "Material premium",
+            "feature4": "Suporte prioritário",
+            "feature5": "Certificados oficiais"
+        },
+        
+        "premium": {
+            "title": "Plano Premium",
+            "tagline": "Experiência completa",
+            "feature1": "Acesso a todos os cursos",
+            "feature2": "Tutoria ilimitada",
+            "feature3": "Conteúdo exclusivo",
+            "feature4": "Suporte 24/7",
+            "feature5": "Certificação premium"
+        }
+    },
+    
+    "cta": {
+        "title": "Precisa de um Plano Personalizado?",
+        "subtitle": "Entre em contato e criaremos uma solução sob medida para suas necessidades educacionais",
+        "or": "OU",
+        "emailPlaceholder": "Email",
+        "send": "Enviar",
+        "responseTime": "Entraremos em contato em menos de 24 horas",
+        "contactDirectly": "Você também pode nos contatar diretamente:",
+        "call": "Ligar",
+        "email": "Email"
+    },
+    
+    "footer": {
+        "description": "Transformando a educação através de tecnologia inovadora e conteúdo de qualidade.",
+        "contactInfo": "Informações de Contato",
+        "address": "Rua Exemplo #123, Cidade, CEP 12345",
+        "hours": "Segunda - Sexta: 9:00 - 18:00",
+        "quickLinks": "Links Rápidos",
+        "privacyPolicy": "Política de Privacidade",
+        "termsOfService": "Termos de Serviço",
+        "faq": "Perguntas Frequentes",
+        "educationalBlog": "Blog Educacional",
+        "quote": "\"A educação não é preparação para a vida; a educação é a vida mesma.\" - John Dewey",
+        "rights": "Todos os direitos reservados.",
+        "tagline": "Perfeccionando seu aprendizado"
+    },
+    
+    "modal": {
+        "close": "Fechar",
+        "privacy": {
+            "title": "Política de Privacidade",
+            "content": "<h3>1. Informações que coletamos</h3><p>Coletamos informações que você nos fornece diretamente, como quando cria uma conta, preenche um formulário ou se comunica conosco. Isso pode incluir:</p><ul><li>Nome e sobrenome</li><li>Endereço de email</li><li>Informações de pagamento</li><li>Conteúdo que você publica ou envia</li></ul><h3>2. Uso das informações</h3><p>Usamos as informações que coletamos para:</p><ul><li>Fornecer, manter e melhorar nossos serviços</li><li>Processar suas transações</li><li>Enviar comunicações relacionadas ao serviço</li><li>Personalizar sua experiência educacional</li><li>Compreender e analisar como você usa nossos serviços</li></ul><h3>3. Compartilhamento de informações</h3><p>Não vendemos suas informações pessoais a terceiros. Podemos compartilhar informações nas seguintes circunstâncias:</p><ul><li>Com seu consentimento</li><li>Para cumprir obrigações legais</li><li>Com provedores de serviços que nos ajudam a operar</li><li>Em conexão com uma fusão ou aquisição</li></ul><h3>4. Segurança</h3><p>Implementamos medidas de segurança técnicas e organizacionais para proteger suas informações pessoais. No entanto, nenhum método de transmissão pela Internet ou armazenamento eletrônico é 100% seguro.</p><h3>5. Seus direitos</h3><p>Você tem o direito de acessar, corrigir ou excluir suas informações pessoais. Pode nos contatar a qualquer momento para exercer esses direitos.</p>"
+        },
+        
+        "terms": {
+            "title": "Termos de Serviço",
+            "content": "<h3>1. Aceitação dos termos</h3><p>Ao acessar e usar os serviços da EDULINE, você concorda em estar sujeito a estes Termos de Serviço. Se você discordar de alguma parte dos termos, não poderá acessar o serviço.</p><h3>2. Contas de usuário</h3><p>Ao criar uma conta conosco, você deve fornecer informações precisas, completas e atualizadas. Você é responsável por manter a confidencialidade de sua conta e senha.</p><h3>3. Assinaturas e pagamentos</h3><p>Algumas partes do Serviço são pagas. Você concorda em pagar todas as taxas aplicáveis de acordo com os planos de preços. As assinaturas são renovadas automaticamente, a menos que canceladas antes do período de cobrança.</p><h3>4. Conteúdo do usuário</h3><p>Você é responsável pelo conteúdo que publica em nossos serviços. Reservamo-nos o direito de remover qualquer conteúdo que considerarmos inadequado ou que viole estes termos.</p><h3>5. Propriedade intelectual</h3><p>O Serviço e seu conteúdo original, características e funcionalidade são e continuarão sendo propriedade exclusiva da EDULINE e seus licenciantes. Nossos materiais são protegidos por direitos autorais, marcas registradas e outras leis.</p><h3>6. Limitação de responsabilidade</h3><p>A EDULINE não será responsável por quaisquer danos indiretos, incidentais, especiais, consequenciais ou punitivos, incluindo perda de lucros, dados ou outros bens intangíveis.</p><h3>7. Alterações nos termos</h3><p>Reservamo-nos o direito de modificar estes termos a qualquer momento. Notificaremos você sobre alterações importantes publicando os novos termos neste site.</p>"
+        },
+        
+        "faq": {
+            "title": "Perguntas Frequentes",
+            "content": "<h3>1. Como posso começar com a EDULINE?</h3><p>Para começar, simplesmente clique em qualquer botão \"Começar Agora\" e escolha o plano que melhor atende às suas necessidades. Você pode se registrar em menos de 2 minutos.</p><h3>2. Posso mudar de plano a qualquer momento?</h3><p>Sim, você pode atualizar ou rebaixar seu plano a qualquer momento a partir do seu painel. As alterações serão refletidas em sua próxima cobrança.</p><h3>3. Oferecem teste gratuito?</h3><p>Sim, oferecemos um teste gratuito de 7 dias para todos os nossos planos. Não é necessário cartão de crédito para iniciar o teste.</p><h3>4. Quais métodos de pagamento aceitam?</h3><p>Aceitamos cartões de crédito/débito (Visa, MasterCard, American Express), PayPal e transferências bancárias em alguns países.</p><h3>5. Posso cancelar minha assinatura a qualquer momento?</h3><p>Sim, você pode cancelar sua assinatura a qualquer momento a partir do seu painel. O acesso continuará até o final do período de cobrança atual.</p><h3>6. Oferecem certificados ao concluir os cursos?</h3><p>Sim, todos os nossos planos, exceto o Básico, incluem certificados de conclusão. Os planos Padrão e Premium incluem certificados oficiais com verificação online.</p><h3>7. Como funciona o sistema de tutoria?</h3><p>Nosso sistema de tutoria conecta os alunos a especialistas na área. Você pode agendar sessões de tutoria individuais ou em grupo de acordo com seu plano.</p><h3>8. O conteúdo está disponível em vários idiomas?</h3><p>Sim, nosso conteúdo está disponível em espanhol, inglês e português. Você pode alterar o idioma a qualquer momento nas configurações.</p><h3>9. Quais dispositivos são compatíveis?</h3><p>Nossa plataforma é compatível com computadores, tablets e telefones celulares. Também oferecemos aplicativos nativos para iOS e Android.</p><h3>10. Como entro em contato com o suporte técnico?</h3><p>Você pode entrar em contato com nossa equipe de suporte através do chat ao vivo, email ou telefone. Os tempos de resposta variam de acordo com seu plano.</p>"
+        },
+        
+        "blog": {
+            "title": "Blog Educacional",
+            "content": "<h3>Últimas tendências em educação digital</h3><p>Na EDULINE, acreditamos na importância de se manter atualizado com as últimas tendências educacionais. Nosso blog educacional oferece conteúdo valioso para estudantes, educadores e profissionais.</p><h4>Categorias do blog:</h4><ul><li><strong>Tecnologia Educacional:</strong> Exploramos as ferramentas e plataformas que estão transformando a educação.</li><li><strong>Metodologias de Aprendizagem:</strong> Analisamos diferentes abordagens pedagógicas e sua eficácia.</li><li><strong>Desenvolvimento Profissional:</strong> Dicas e recursos para avançar em sua carreira.</li><li><strong>Pesquisas Educacionais:</strong> Compartilhamos estudos e descobertas relevantes do setor educacional.</li><li><strong>Histórias de Sucesso:</strong> Estudos de caso de estudantes que transformaram seu aprendizado com a EDULINE.</li></ul><h4>Artigos em destaque:</h4><div class=\"blog-articles\"><div class=\"article-preview mb-4 p-3 border rounded\"><h5>A Inteligência Artificial na Educação Personalizada</h5><p>Descubra como a IA está revolucionando a forma como aprendemos, adaptando o conteúdo às necessidades individuais de cada aluno.</p><small class=\"text-muted\">Publicado: 15 de janeiro de 2025</small></div><div class=\"article-preview mb-4 p-3 border rounded\"><h5>Microlearning: Aprendizagem em Pequenas Doses</h5><p>Explore a eficácia da aprendizagem em sessões curtas e como isso pode melhorar a retenção de informações.</p><small class=\"text-muted\">Publicado: 10 de janeiro de 2025</small></div><div class=\"article-preview mb-4 p-3 border rounded\"><h5>Gamificação na Educação Online</h5><p>Analisamos como os elementos dos jogos podem aumentar a motivação e o engajamento dos alunos.</p><small class=\"text-muted\">Publicado: 5 de janeiro de 2025</small></div></div><h4>Em breve:</h4><p>Estamos trabalhando em novas seções do blog, incluindo entrevistas com especialistas, tutoriais práticos e análises de ferramentas educacionais. Inscreva-se em nossa newsletter para não perder nenhuma atualização!</p><div class=\"alert alert-info mt-4\"><i class=\"fas fa-info-circle mr-2\"></i><strong>Nota:</strong> Nosso blog educacional é atualizado semanalmente com conteúdo novo e relevante. Todos os artigos estão disponíveis para alunos dos planos Padrão e Premium.</div>"
+        }
+    },
+    
+    "themeDark": "Escuro",
+    "themeLight": "Claro"
+}

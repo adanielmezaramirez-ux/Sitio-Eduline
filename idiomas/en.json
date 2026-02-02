@@ -1,0 +1,153 @@
+{
+    "pageTitle": "EDULINE - Perfecting Your Learning",
+    
+    "nav": {
+        "home": "Home",
+        "features": "Features",
+        "plans": "Plans",
+        "contact": "Contact",
+        "getStarted": "Get Started"
+    },
+    
+    "banner": {
+        "title": "EDULINE",
+        "subtitle": "Perfecting your learning with advanced technology",
+        "getStarted": "Get Started",
+        "learnMore": "Learn More"
+    },
+    
+    "features": {
+        "title": "What We Offer?",
+        "subtitle": "Transforming education with innovative solutions designed for student success",
+        
+        "practicality": {
+            "title": "Practicality",
+            "description": "Access educational content from any device, at any time. Intuitive platform designed to facilitate your learning.",
+            "list1": "24/7 Access",
+            "list2": "User-friendly interface",
+            "list3": "Multi-platform"
+        },
+        
+        "professionalism": {
+            "title": "Professionalism",
+            "description": "Content created by education and pedagogy experts. We guarantee quality and constant updating of materials.",
+            "list1": "Certified experts",
+            "list2": "Updated content",
+            "list3": "Personalized follow-up"
+        },
+        
+        "technology": {
+            "title": "Specialized Technology",
+            "description": "We use AI and data analysis to personalize your learning experience and maximize your results.",
+            "list1": "Artificial Intelligence",
+            "list2": "Progress analysis",
+            "list3": "Smart adaptation"
+        }
+    },
+    
+    "carousel": {
+        "slide1": {
+            "title": "Interactive Learning",
+            "description": "Immersive educational experiences that capture your attention"
+        },
+        "slide2": {
+            "title": "Advanced Technology",
+            "description": "Cutting-edge tools for 21st century learning"
+        },
+        "slide3": {
+            "title": "Global Community",
+            "description": "Connect with students and professionals around the world"
+        }
+    },
+    
+    "plans": {
+        "title": "Subscription Plans",
+        "subtitle": "Choose the plan that best fits your educational needs",
+        "perMonth": "/month",
+        "choosePlan": "Choose Plan",
+        "startToday": "Start Today",
+        
+        "basic": {
+            "title": "Basic Plan",
+            "tagline": "Ideal to start",
+            "feature1": "Access to basic courses",
+            "feature2": "5 hours of monthly tutoring",
+            "feature3": "Downloadable material",
+            "feature4": "Email support",
+            "feature5": "Completion certificates"
+        },
+        
+        "standard": {
+            "title": "Standard Plan",
+            "tagline": "Most popular",
+            "feature1": "All basic courses",
+            "feature2": "15 hours of monthly tutoring",
+            "feature3": "Premium material",
+            "feature4": "Priority support",
+            "feature5": "Official certificates"
+        },
+        
+        "premium": {
+            "title": "Premium Plan",
+            "tagline": "Complete experience",
+            "feature1": "Access to all courses",
+            "feature2": "Unlimited tutoring",
+            "feature3": "Exclusive content",
+            "feature4": "24/7 support",
+            "feature5": "Premium certification"
+        }
+    },
+    
+    "cta": {
+        "title": "Need a Custom Plan?",
+        "subtitle": "Contact us and we'll create a tailored solution for your educational needs",
+        "or": "OR",
+        "emailPlaceholder": "Email Address",
+        "send": "Send",
+        "responseTime": "We'll contact you in less than 24 hours",
+        "contactDirectly": "You can also contact us directly:",
+        "call": "Call",
+        "email": "Email"
+    },
+    
+    "footer": {
+        "description": "Transforming education through innovative technology and quality content.",
+        "contactInfo": "Contact Information",
+        "address": "Example Street #123, City, ZIP 12345",
+        "hours": "Monday - Friday: 9:00 AM - 6:00 PM",
+        "quickLinks": "Quick Links",
+        "privacyPolicy": "Privacy Policy",
+        "termsOfService": "Terms of Service",
+        "faq": "Frequently Asked Questions",
+        "educationalBlog": "Educational Blog",
+        "quote": "\"Education is not preparation for life; education is life itself.\" - John Dewey",
+        "rights": "All rights reserved.",
+        "tagline": "Perfecting your learning"
+    },
+    
+    "modal": {
+        "close": "Close",
+        "privacy": {
+            "title": "Privacy Policy",
+            "content": "<h3>1. Information We Collect</h3><p>We collect information you provide directly to us, such as when you create an account, complete a form, or communicate with us. This may include:</p><ul><li>First and last name</li><li>Email address</li><li>Payment information</li><li>Content you post or submit</li></ul><h3>2. Use of Information</h3><p>We use the information we collect to:</p><ul><li>Provide, maintain, and improve our services</li><li>Process your transactions</li><li>Send service-related communications</li><li>Personalize your educational experience</li><li>Understand and analyze how you use our services</li></ul><h3>3. Information Sharing</h3><p>We do not sell your personal information to third parties. We may share information in the following circumstances:</p><ul><li>With your consent</li><li>To comply with legal obligations</li><li>With service providers who help us operate</li><li>In connection with a merger or acquisition</li></ul><h3>4. Security</h3><p>We implement technical and organizational security measures to protect your personal information. However, no method of transmission over the Internet or electronic storage is 100% secure.</p><h3>5. Your Rights</h3><p>You have the right to access, correct, or delete your personal information. You can contact us at any time to exercise these rights.</p>"
+        },
+        
+        "terms": {
+            "title": "Terms of Service",
+            "content": "<h3>1. Acceptance of Terms</h3><p>By accessing and using EDULINE's services, you agree to be bound by these Terms of Service. If you disagree with any part of the terms, you may not access the service.</p><h3>2. User Accounts</h3><p>When you create an account with us, you must provide accurate, complete, and up-to-date information. You are responsible for maintaining the confidentiality of your account and password.</p><h3>3. Subscriptions and Payments</h3><p>Some parts of the Service are paid. You agree to pay all applicable fees according to the pricing plans. Subscriptions automatically renew unless canceled before the billing period.</p><h3>4. User Content</h3><p>You are responsible for the content you post on our services. We reserve the right to remove any content we deem inappropriate or that violates these terms.</p><h3>5. Intellectual Property</h3><p>The Service and its original content, features, and functionality are and will remain the exclusive property of EDULINE and its licensors. Our materials are protected by copyright, trademark, and other laws.</p><h3>6. Limitation of Liability</h3><p>EDULINE shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of profits, data, or other intangible losses.</p><h3>7. Changes to Terms</h3><p>We reserve the right to modify these terms at any time. We will notify you of significant changes by posting the new terms on this site.</p>"
+        },
+        
+        "faq": {
+            "title": "Frequently Asked Questions",
+            "content": "<h3>1. How can I start with EDULINE?</h3><p>To get started, simply click any \"Get Started\" button and choose the plan that best suits your needs. You can register in less than 2 minutes.</p><h3>2. Can I change plans at any time?</h3><p>Yes, you can upgrade or downgrade your plan at any time from your dashboard. Changes will be reflected in your next billing.</p><h3>3. Do you offer a free trial?</h3><p>Yes, we offer a 7-day free trial for all our plans. No credit card required to start the trial.</p><h3>4. What payment methods do you accept?</h3><p>We accept credit/debit cards (Visa, MasterCard, American Express), PayPal, and bank transfers in some countries.</p><h3>5. Can I cancel my subscription at any time?</h3><p>Yes, you can cancel your subscription at any time from your dashboard. Access will continue until the end of the current billing period.</p><h3>6. Do you offer certificates upon course completion?</h3><p>Yes, all our plans except Basic include completion certificates. Standard and Premium plans include official certificates with online verification.</p><h3>7. How does the tutoring system work?</h3><p>Our tutoring system connects students with area experts. You can schedule individual or group tutoring sessions according to your plan.</p><h3>8. Is content available in multiple languages?</h3><p>Yes, our content is available in Spanish, English, and Portuguese. You can change the language at any time from settings.</p><h3>9. What devices are compatible?</h3><p>Our platform is compatible with computers, tablets, and mobile phones. We also offer native apps for iOS and Android.</p><h3>10. How do I contact technical support?</h3><p>You can contact our support team through live chat, email, or phone. Response times vary according to your plan.</p>"
+        },
+        
+        "blog": {
+            "title": "Educational Blog",
+            "content": "<h3>Latest trends in digital education</h3><p>At EDULINE, we believe in the importance of staying updated with the latest educational trends. Our educational blog offers valuable content for students, educators, and professionals.</p><h4>Blog categories:</h4><ul><li><strong>Educational Technology:</strong> We explore the tools and platforms transforming education.</li><li><strong>Learning Methodologies:</strong> We analyze different pedagogical approaches and their effectiveness.</li><li><strong>Professional Development:</strong> Tips and resources to advance your career.</li><li><strong>Educational Research:</strong> We share relevant studies and findings from the education sector.</li><li><strong>Success Stories:</strong> Case studies of students who have transformed their learning with EDULINE.</li></ul><h4>Featured articles:</h4><div class=\"blog-articles\"><div class=\"article-preview mb-4 p-3 border rounded\"><h5>Artificial Intelligence in Personalized Education</h5><p>Discover how AI is revolutionizing the way we learn, adapting content to each student's individual needs.</p><small class=\"text-muted\">Published: January 15, 2025</small></div><div class=\"article-preview mb-4 p-3 border rounded\"><h5>Microlearning: Learning in Small Doses</h5><p>Explore the effectiveness of learning in short sessions and how it can improve information retention.</p><small class=\"text-muted\">Published: January 10, 2025</small></div><div class=\"article-preview mb-4 p-3 border rounded\"><h5>Gamification in Online Education</h5><p>We analyze how game elements can increase student motivation and engagement.</p><small class=\"text-muted\">Published: January 5, 2025</small></div></div><h4>Coming soon:</h4><p>We're working on new blog sections, including expert interviews, practical tutorials, and educational tool analysis. Subscribe to our newsletter so you don't miss any updates!</p><div class=\"alert alert-info mt-4\"><i class=\"fas fa-info-circle mr-2\"></i><strong>Note:</strong> Our educational blog is updated weekly with fresh and relevant content. All articles are available for Standard and Premium plan students.</div>"
+        }
+    },
+    
+    "themeDark": "Dark",
+    "themeLight": "Light"
+}
