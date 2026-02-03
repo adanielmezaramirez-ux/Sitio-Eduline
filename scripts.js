@@ -3,19 +3,27 @@ document.addEventListener('DOMContentLoaded', function() {
     // Variables globales
     let currentLanguage = 'es';
     let translations = {};
-    const BASE_PATH = window.location.origin + window.location.pathname;
     
-    // Navbar scroll effect
+    // Inicialización del año actual
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    
+    // ========== NAVBAR SCROLL EFFECT ==========
     const navbar = document.querySelector('.navbar');
+    let lastScroll = 0;
+    
     window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
+        
+        lastScroll = currentScroll;
     });
     
-    // Smooth scrolling para enlaces de navegación
+    // ========== SMOOTH SCROLLING ==========
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -25,186 +33,188 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
+                const navbarHeight = navbar.offsetHeight;
+                const targetPosition = targetElement.offsetTop - navbarHeight;
+                
                 window.scrollTo({
-                    top: targetElement.offsetTop - 80,
+                    top: targetPosition,
                     behavior: 'smooth'
                 });
+                
+                // Cerrar el navbar en móvil después de hacer clic
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse.classList.contains('show')) {
+                    const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                    bsCollapse.hide();
+                }
             }
         });
     });
     
-    // Animación de contadores para estadísticas (si agregas alguna)
-    const counters = document.querySelectorAll('.counter');
-    const speed = 200;
+    // ========== SCROLL TO TOP BUTTON ==========
+    const scrollToTopBtn = document.getElementById('scrollToTop');
     
-    const animateCounters = () => {
-        counters.forEach(counter => {
-            const updateCount = () => {
-                const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText;
-                
-                const inc = target / speed;
-                
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + inc);
-                    setTimeout(updateCount, 1);
-                } else {
-                    counter.innerText = target;
-                }
-            };
-            
-            updateCount();
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollToTopBtn.style.display = 'block';
+            setTimeout(() => {
+                scrollToTopBtn.style.opacity = '1';
+            }, 10);
+        } else {
+            scrollToTopBtn.style.opacity = '0';
+            setTimeout(() => {
+                scrollToTopBtn.style.display = 'none';
+            }, 300);
+        }
+    });
+    
+    scrollToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
         });
-    };
+    });
     
-    // Observador de intersección para animaciones al hacer scroll
+    // ========== INTERSECTION OBSERVER FOR ANIMATIONS ==========
     const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
+        rootMargin: '0px 0px -50px 0px'
     };
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('animated');
-                
-                // Si es un contador, iniciar animación
-                if (entry.target.classList.contains('counter')) {
-                    animateCounters();
-                }
+                entry.target.classList.add('animate-in');
             }
         });
     }, observerOptions);
     
-    // Observar elementos que deben animarse al aparecer
-    document.querySelectorAll('.feature-card, .plan-card, .section-title').forEach(el => {
+    // Observar elementos animables
+    document.querySelectorAll('.feature-card, .plan-card, .cta-content').forEach(el => {
         observer.observe(el);
     });
     
-    // Efecto de escritura para el banner (opcional)
-    const bannerText = document.querySelector('.banner-content h1');
-    if (bannerText) {
-        const text = bannerText.textContent;
-        bannerText.textContent = '';
-        
-        let i = 0;
-        const typeWriter = () => {
-            if (i < text.length) {
-                bannerText.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 50);
+    // ========== CONTACT FORM VALIDATION ==========
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!contactForm.checkValidity()) {
+                e.stopPropagation();
+                contactForm.classList.add('was-validated');
+                return;
             }
-        };
-        
-        // Descomentar para activar efecto de escritura
-        // setTimeout(typeWriter, 500);
+            
+            // Obtener datos del formulario
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone')?.value || '',
+                message: document.getElementById('message').value
+            };
+            
+            // Simular envío exitoso
+            showNotification('¡Mensaje enviado exitosamente! Te contactaremos pronto.', 'success');
+            
+            // Resetear formulario
+            contactForm.reset();
+            contactForm.classList.remove('was-validated');
+            
+            // Aquí iría la llamada AJAX real
+            // sendFormData(formData);
+        });
     }
     
-    // Validación del formulario
-    const emailForm = document.querySelector('.email-form form');
-    if (emailForm) {
-        emailForm.addEventListener('submit', function(e) {
+    // ========== NEWSLETTER FORM ==========
+    const newsletterForm = document.getElementById('newsletterForm');
+    
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
             const emailInput = this.querySelector('input[type="email"]');
             const email = emailInput.value;
             
             if (!isValidEmail(email)) {
-                showAlert('Por favor, introduce un correo electrónico válido.', 'error');
+                showNotification('Por favor, introduce un correo electrónico válido.', 'error');
                 return;
             }
             
-            // Simular envío
-            showAlert('¡Gracias! Te contactaremos pronto.', 'success');
+            showNotification('¡Gracias por suscribirte! Recibirás nuestras novedades.', 'success');
             emailInput.value = '';
-            
-            // Aquí iría la llamada AJAX para enviar el correo
         });
     }
     
-    function isValidEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
-    }
-    
-    function showAlert(message, type) {
-        // Eliminar alerta anterior si existe
-        const existingAlert = document.querySelector('.form-alert');
-        if (existingAlert) existingAlert.remove();
-        
-        // Crear nueva alerta
-        const alertDiv = document.createElement('div');
-        alertDiv.className = `form-alert alert alert-${type === 'error' ? 'danger' : 'success'} mt-3`;
-        alertDiv.textContent = message;
-        alertDiv.style.cssText = 'border-radius: 50px; padding: 15px 25px;';
-        
-        // Insertar después del formulario
-        emailForm.parentNode.insertBefore(alertDiv, emailForm.nextSibling);
-        
-        // Remover después de 5 segundos
-        setTimeout(() => {
-            alertDiv.remove();
-        }, 5000);
-    }
-    
-    // Efecto hover para tarjetas de plan (mejorado)
-    const planCards = document.querySelectorAll('.plan-card');
-    planCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-15px) scale(1.02)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            if (!this.classList.contains('plan-highlight')) {
-                this.style.transform = 'translateY(0) scale(1)';
-            } else {
-                this.style.transform = 'translateY(-15px) scale(1.05)';
-            }
-        });
-    });
-    
-    // Sistema de idiomas - Inicialización
+    // ========== LANGUAGE SYSTEM ==========
     const languageSelect = document.getElementById('languageSelect');
     
-    // Configurar rutas base para los archivos de idioma
+    // Mapeo de códigos de idioma (código HTML -> código de archivo)
+    const languageMap = {
+        'es': 'es',
+        'en': 'en',
+        'pt': 'por',  // Mapear pt a por para los archivos idiomas_por.json
+        'por': 'por'
+    };
+    
     function getBasePath() {
-        // Si el archivo está en la raíz del proyecto
-        if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
-            return './idiomas/';
-        } else {
-            // Si está en una subcarpeta, ajustar la ruta
-            const pathArray = window.location.pathname.split('/');
-            pathArray.pop(); // Remover el nombre del archivo actual
-            const basePath = pathArray.join('/') + '/idiomas/';
-            return basePath || './idiomas/';
+        const currentPath = window.location.pathname;
+        if (currentPath.includes('/mnt/user-data/outputs')) {
+            return './idiomas_';
         }
+        return './idiomas/';
     }
     
-    const LANGUAGE_PATH = getBasePath();
-    
-    // Función robusta para cargar idiomas
     async function loadLanguage(lang) {
         try {
-            const response = await fetch(`${LANGUAGE_PATH}${lang}.json`, {
-                method: 'GET',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                cache: 'no-cache'
-            });
+            // Mapear el código de idioma si es necesario
+            const mappedLang = languageMap[lang] || lang;
             
-            if (!response.ok) {
-                throw new Error(`Error HTTP: ${response.status}`);
+            // Intentar diferentes rutas
+            const paths = [
+                `./idiomas/${mappedLang}.json`,
+                `./idiomas_${mappedLang}.json`,
+                `idiomas/${mappedLang}.json`,
+                `idiomas_${mappedLang}.json`
+            ];
+            
+            let response = null;
+            for (const path of paths) {
+                try {
+                    response = await fetch(path, {
+                        method: 'GET',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        cache: 'no-cache'
+                    });
+                    
+                    if (response.ok) {
+                        console.log(`Idioma cargado desde: ${path}`);
+                        break;
+                    }
+                } catch (e) {
+                    continue;
+                }
+            }
+            
+            if (!response || !response.ok) {
+                console.error('No se pudo cargar el archivo de idioma para:', lang);
+                return;
             }
             
             translations = await response.json();
+            currentLanguage = lang;
             
             // Actualizar todos los elementos con data-i18n
             updateAllTranslations();
             
             // Actualizar título de la página
-            document.title = translations['pageTitle'] || 'EDULINE';
+            if (translations.pageTitle) {
+                document.title = translations.pageTitle;
+            }
             
             // Actualizar selector de idioma
             if (languageSelect) {
@@ -214,210 +224,117 @@ document.addEventListener('DOMContentLoaded', function() {
             // Actualizar texto del tema
             updateThemeText();
             
-            console.log(`Idioma cargado exitosamente: ${lang}`);
-            
-            // Guardar preferencias
+            // Guardar preferencia
             savePreferences();
             
-        } catch (error) {
-            console.error('Error cargando archivo de idioma:', error);
+            console.log(`Idioma cargado exitosamente: ${lang} (${mappedLang})`);
             
-            // Intentar cargar desde ubicación alternativa
-            try {
-                const fallbackResponse = await fetch(`./idiomas/${lang}.json`);
-                if (fallbackResponse.ok) {
-                    translations = await fallbackResponse.json();
-                    updateAllTranslations();
-                    console.log(`Idioma cargado desde ruta alternativa: ${lang}`);
-                } else {
-                    // Cargar idioma por defecto si hay error
-                    if (lang !== 'es') {
-                        console.log('Cargando idioma por defecto: es');
-                        loadLanguage('es');
-                    } else {
-                        // Si estamos intentando cargar español y falla, mostrar advertencia
-                        console.warn('No se pudo cargar ningún archivo de idioma. Usando texto por defecto.');
-                    }
-                }
-            } catch (fallbackError) {
-                console.error('Error en intento alternativo:', fallbackError);
-                if (lang !== 'es') {
-                    loadLanguage('es');
-                }
-            }
+        } catch (error) {
+            console.error('Error cargando idioma:', error);
         }
     }
     
-    // Función para actualizar todas las traducciones
     function updateAllTranslations() {
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
-            applyTranslation(element, key);
+            const translation = getNestedTranslation(translations, key);
+            
+            if (translation) {
+                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    element.placeholder = translation;
+                } else {
+                    element.textContent = translation;
+                }
+            }
         });
         
         // Actualizar contenido de modales si están abiertos
-        updateModalContent();
-    }
-    
-    // Función para aplicar traducción a un elemento
-    function applyTranslation(element, key) {
-        if (!key || !translations) return;
-        
-        // Buscar traducción anidada (ej: "nav.home")
-        const keys = key.split('.');
-        let translation = translations;
-        
-        for (const k of keys) {
-            if (translation && translation[k] !== undefined) {
-                translation = translation[k];
-            } else {
-                translation = null;
-                break;
-            }
-        }
-        
-        if (translation) {
-            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                element.placeholder = translation;
-            } else if (element.hasAttribute('title')) {
-                element.title = translation;
-            } else if (element.hasAttribute('alt')) {
-                element.alt = translation;
-            } else if (element.hasAttribute('value')) {
-                element.value = translation;
-            } else {
-                element.textContent = translation;
-            }
-        } else {
-            console.warn(`Traducción no encontrada para clave: ${key}`);
-        }
-    }
-    
-    // Actualizar contenido de modales basados en idioma
-    function updateModalContent() {
-        const modal = document.getElementById('dynamicModal');
-        if (modal && modal.classList.contains('show')) {
-            const modalType = modal.getAttribute('data-current-modal');
-            if (modalType && modalContentData[modalType]) {
-                const titleKey = `modal.${modalType}.title`;
-                const contentKey = `modal.${modalType}.content`;
-                
-                if (translations[titleKey]) {
-                    modalTitle.textContent = translations[titleKey];
-                }
-                
-                if (translations[contentKey]) {
-                    modalContent.innerHTML = translations[contentKey];
-                }
+        const modalElement = document.getElementById('dynamicModal');
+        if (modalElement && modalElement.classList.contains('show')) {
+            const modalType = modalElement.getAttribute('data-current-modal');
+            if (modalType) {
+                updateModalContent(modalType);
             }
         }
     }
     
-    // Cargar idioma por defecto
-    loadLanguage('es');
+    function getNestedTranslation(obj, path) {
+        return path.split('.').reduce((current, key) => current?.[key], obj);
+    }
     
-    // Evento para cambiar idioma
     if (languageSelect) {
         languageSelect.addEventListener('change', function() {
-            currentLanguage = this.value;
-            loadLanguage(currentLanguage);
+            loadLanguage(this.value);
         });
     }
     
-    // Sistema de modo oscuro/claro
-    const themeToggle = document.getElementById('themeToggle');
+    // ========== THEME TOGGLE ==========
     const body = document.body;
+    const themeToggle = document.getElementById('themeToggle');
     
-    // Cargar preferencias del usuario
-    loadPreferences();
-    
-    // Evento para cambiar tema
     if (themeToggle) {
         themeToggle.addEventListener('click', function() {
             body.classList.toggle('dark-mode');
-            
-            // Ajustar el video si existe
-            const videoBanner = document.querySelector('.video-banner');
-            const heroVideo = document.getElementById('heroVideo');
-            
-            if (videoBanner && heroVideo) {
-                if (body.classList.contains('dark-mode')) {
-                    videoBanner.classList.add('dark-video');
-                    // Reducir brillo del video en modo oscuro
-                    heroVideo.style.filter = 'brightness(0.7)';
-                } else {
-                    videoBanner.classList.remove('dark-video');
-                    heroVideo.style.filter = 'brightness(1)';
-                }
-            }
-            
             updateThemeText();
+            applyThemeToAllElements();
             savePreferences();
+            
+            // Animar el cambio
+            body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
         });
     }
     
+    function applyThemeToAllElements() {
+        // Forzar actualización de estilos en todos los elementos
+        const isDark = body.classList.contains('dark-mode');
+        
+        // Actualizar secciones
+        document.querySelectorAll('.bg-light, .bg-white').forEach(el => {
+            el.style.transition = 'background-color 0.3s ease';
+        });
+        
+        // Actualizar cards
+        document.querySelectorAll('.card').forEach(el => {
+            el.style.transition = 'background-color 0.3s ease, border-color 0.3s ease';
+        });
+        
+        // Actualizar formularios
+        document.querySelectorAll('input, textarea, select').forEach(el => {
+            el.style.transition = 'background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease';
+        });
+        
+        // Forzar repaint
+        setTimeout(() => {
+            document.body.style.display = 'none';
+            document.body.offsetHeight; // Trigger reflow
+            document.body.style.display = '';
+        }, 10);
+    }
+    
     function updateThemeText() {
-        const themeText = document.querySelector('.theme-text');
-        if (themeText) {
-            if (body.classList.contains('dark-mode')) {
-                themeText.textContent = translations ? (translations['themeLight'] || 'Claro') : 'Claro';
-                if (themeToggle) {
-                    const icon = themeToggle.querySelector('i');
-                    if (icon) icon.className = 'fas fa-sun';
-                }
-            } else {
-                themeText.textContent = translations ? (translations['themeDark'] || 'Oscuro') : 'Oscuro';
-                if (themeToggle) {
-                    const icon = themeToggle.querySelector('i');
-                    if (icon) icon.className = 'fas fa-moon';
-                }
+        if (!themeToggle) return;
+        
+        const icon = themeToggle.querySelector('i');
+        const text = themeToggle.querySelector('.theme-text');
+        
+        if (body.classList.contains('dark-mode')) {
+            icon.className = 'fas fa-sun';
+            if (text && translations.themeLight) {
+                text.textContent = ' ' + translations.themeLight;
+            } else if (text) {
+                text.textContent = ' Claro';
+            }
+        } else {
+            icon.className = 'fas fa-moon';
+            if (text && translations.themeDark) {
+                text.textContent = ' ' + translations.themeDark;
+            } else if (text) {
+                text.textContent = ' Oscuro';
             }
         }
     }
     
-    // Control de video del banner
-    const videoToggle = document.getElementById('videoToggle');
-    const videoVolume = document.getElementById('videoVolume');
-    const playIcon = document.getElementById('playIcon');
-    const pauseIcon = document.getElementById('pauseIcon');
-    const heroVideo = document.getElementById('heroVideo');
-    
-    if (heroVideo && videoToggle) {
-        videoToggle.addEventListener('click', function() {
-            if (heroVideo.paused) {
-                heroVideo.play();
-                if (playIcon) playIcon.style.display = 'none';
-                if (pauseIcon) pauseIcon.style.display = 'inline';
-            } else {
-                heroVideo.pause();
-                if (playIcon) playIcon.style.display = 'inline';
-                if (pauseIcon) pauseIcon.style.display = 'none';
-            }
-        });
-        
-        // Actualizar icono cuando el video se pausa automáticamente
-        heroVideo.addEventListener('pause', function() {
-            if (playIcon) playIcon.style.display = 'inline';
-            if (pauseIcon) pauseIcon.style.display = 'none';
-        });
-        
-        heroVideo.addEventListener('play', function() {
-            if (playIcon) playIcon.style.display = 'none';
-            if (pauseIcon) pauseIcon.style.display = 'inline';
-        });
-    }
-    
-    if (videoVolume && heroVideo) {
-        videoVolume.addEventListener('click', function() {
-            heroVideo.muted = !heroVideo.muted;
-            const icon = this.querySelector('i');
-            if (icon) {
-                icon.className = heroVideo.muted ? 'fas fa-volume-mute' : 'fas fa-volume-up';
-            }
-        });
-    }
-    
-    // Sistema de modales para enlaces del footer
+    // ========== MODAL SYSTEM ==========
     const modalLinks = document.querySelectorAll('.modal-link');
     const modalElement = document.getElementById('dynamicModal');
     let dynamicModal = null;
@@ -429,70 +346,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalTitle = document.getElementById('dynamicModalTitle');
     const modalContent = document.getElementById('dynamicModalContent');
     
-    // Contenido de los modales (por defecto en español)
-    const modalContentData = {
-        privacy: {
-            title: 'Política de Privacidad',
-            content: `
-                <h3>1. Información que recopilamos</h3>
-                <p>Recopilamos información que usted nos proporciona directamente...</p>
-                <!-- Resto del contenido -->
-            `
-        },
-        terms: {
-            title: 'Términos de Servicio',
-            content: `
-                <h3>1. Aceptación de los términos</h3>
-                <p>Al acceder y utilizar los servicios de EDULINE...</p>
-                <!-- Resto del contenido -->
-            `
-        },
-        faq: {
-            title: 'Preguntas Frecuentes',
-            content: `
-                <h3>1. ¿Cómo puedo comenzar con EDULINE?</h3>
-                <p>Para comenzar, simplemente haga clic en cualquier botón...</p>
-                <!-- Resto del contenido -->
-            `
-        },
-        blog: {
-            title: 'Blog Educativo',
-            content: `
-                <h3>Últimas tendencias en educación digital</h3>
-                <p>En EDULINE, creemos en la importancia de mantenerse actualizado...</p>
-                <!-- Resto del contenido -->
-            `
-        }
-    };
+    function updateModalContent(modalType) {
+        if (!modalTitle || !modalContent) return;
+        
+        const titleKey = `modal.${modalType}.title`;
+        const contentKey = `modal.${modalType}.content`;
+        
+        const title = getNestedTranslation(translations, titleKey);
+        const content = getNestedTranslation(translations, contentKey);
+        
+        if (title) modalTitle.textContent = title;
+        if (content) modalContent.innerHTML = content;
+    }
     
-    // Evento para abrir modales
     modalLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const modalType = this.getAttribute('data-modal');
             
-            if (modalType && dynamicModal && modalTitle && modalContent) {
-                // Guardar el tipo de modal actual
+            if (modalType && dynamicModal) {
                 modalElement.setAttribute('data-current-modal', modalType);
-                
-                // Actualizar título y contenido según el idioma actual
-                const titleKey = `modal.${modalType}.title`;
-                const contentKey = `modal.${modalType}.content`;
-                
-                if (translations && translations[titleKey]) {
-                    modalTitle.textContent = translations[titleKey];
-                } else {
-                    modalTitle.textContent = modalContentData[modalType]?.title || modalType;
-                }
-                
-                if (translations && translations[contentKey]) {
-                    modalContent.innerHTML = translations[contentKey];
-                } else if (modalContentData[modalType]) {
-                    modalContent.innerHTML = modalContentData[modalType].content;
-                } else {
-                    modalContent.innerHTML = `<p>Contenido no disponible en este idioma.</p>`;
-                }
-                
+                updateModalContent(modalType);
                 dynamicModal.show();
             }
         });
@@ -500,12 +374,32 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Cerrar modal con tecla ESC
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modalElement && modalElement.classList.contains('show')) {
-            if (dynamicModal) dynamicModal.hide();
+        if (e.key === 'Escape' && modalElement?.classList.contains('show')) {
+            dynamicModal?.hide();
         }
     });
     
-    // Guardar y cargar preferencias del usuario
+    // ========== VIDEO CONTROLS ==========
+    const heroVideo = document.getElementById('heroVideo');
+    
+    if (heroVideo) {
+        // Pausar/reproducir al hacer clic
+        heroVideo.addEventListener('click', function() {
+            if (this.paused) {
+                this.play();
+            } else {
+                this.pause();
+            }
+        });
+        
+        // Asegurar que el video se reproduzca en loop
+        heroVideo.addEventListener('ended', function() {
+            this.currentTime = 0;
+            this.play();
+        });
+    }
+    
+    // ========== PREFERENCES STORAGE ==========
     function savePreferences() {
         try {
             const preferences = {
@@ -525,94 +419,195 @@ document.addEventListener('DOMContentLoaded', function() {
                 const preferences = JSON.parse(savedPreferences);
                 
                 // Cargar idioma
-                if (preferences.language && preferences.language !== currentLanguage) {
+                if (preferences.language) {
                     currentLanguage = preferences.language;
-                    // El idioma se cargará automáticamente más adelante
                 }
                 
                 // Cargar tema
                 if (preferences.darkMode) {
                     body.classList.add('dark-mode');
-                    const videoBanner = document.querySelector('.video-banner');
-                    const heroVideo = document.getElementById('heroVideo');
-                    
-                    if (videoBanner && heroVideo) {
-                        videoBanner.classList.add('dark-video');
-                        heroVideo.style.filter = 'brightness(0.7)';
-                    }
+                    applyThemeToAllElements();
                 }
+                
+                updateThemeText();
             }
         } catch (error) {
             console.error('Error cargando preferencias:', error);
         }
     }
     
-    // Inicializar tooltips de Bootstrap (si los usas)
-    if (typeof $ !== 'undefined') {
-        $('[data-toggle="tooltip"]').tooltip();
+    // ========== UTILITY FUNCTIONS ==========
+    function isValidEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
     }
     
-    // Efecto de aparición gradual para elementos
-    const fadeElements = document.querySelectorAll('.feature-card, .plan-card, .section-title');
-    fadeElements.forEach((el, index) => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
+    function showNotification(message, type = 'info') {
+        // Crear contenedor de notificaciones si no existe
+        let notificationContainer = document.getElementById('notificationContainer');
+        if (!notificationContainer) {
+            notificationContainer = document.createElement('div');
+            notificationContainer.id = 'notificationContainer';
+            notificationContainer.style.cssText = `
+                position: fixed;
+                top: 80px;
+                right: 20px;
+                z-index: 9999;
+                max-width: 400px;
+            `;
+            document.body.appendChild(notificationContainer);
+        }
         
+        // Crear notificación
+        const notification = document.createElement('div');
+        notification.className = `alert alert-${type === 'error' ? 'danger' : 'success'} alert-dismissible fade show shadow-lg`;
+        notification.style.cssText = 'margin-bottom: 10px; border-radius: 10px;';
+        notification.innerHTML = `
+            <strong>${type === 'error' ? '❌' : '✅'}</strong> ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        `;
+        
+        notificationContainer.appendChild(notification);
+        
+        // Auto-eliminar después de 5 segundos
         setTimeout(() => {
-            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            el.style.opacity = '1';
-            el.style.transform = 'translateY(0)';
-        }, 100 * index);
+            notification.classList.remove('show');
+            setTimeout(() => notification.remove(), 300);
+        }, 5000);
+    }
+    
+    // ========== PLAN CARD INTERACTIONS ==========
+    const planCards = document.querySelectorAll('.plan-card');
+    planCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            if (!this.classList.contains('plan-highlight')) {
+                this.style.transform = 'translateY(-10px)';
+            }
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            if (!this.classList.contains('plan-highlight')) {
+                this.style.transform = 'translateY(0)';
+            }
+        });
     });
     
-    // Función para inicializar/reinicializar la página
-    function initializePage() {
-        // Forzar actualización de estilos
-        setTimeout(() => {
-            updateThemeText();
+    // ========== CAROUSEL AUTO-PLAY ==========
+    const carousel = document.getElementById('featuresCarousel');
+    if (carousel) {
+        const bsCarousel = new bootstrap.Carousel(carousel, {
+            interval: 5000,
+            wrap: true,
+            touch: true
+        });
+    }
+    
+    // ========== LOADING ANIMATION ==========
+    function addLoadingAnimations() {
+        const elementsToAnimate = document.querySelectorAll('.feature-card, .plan-card');
+        
+        elementsToAnimate.forEach((element, index) => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
             
-            // Asegurar que todos los elementos tengan colores correctos
-            if (body.classList.contains('dark-mode')) {
-                // Aplicar clase adicional para modo oscuro
-                document.querySelectorAll('.feature-card, .plan-card, .modal-content').forEach(el => {
-                    el.classList.add('dark-mode-element');
-                });
-            }
-            
-            // Asegurar que el idioma esté cargado
-            if (Object.keys(translations).length === 0) {
-                loadLanguage(currentLanguage);
-            }
-        }, 100);
+            setTimeout(() => {
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
+            }, 100 * index);
+        });
+    }
+    
+    // ========== INITIALIZATION ==========
+    function initializeApp() {
+        // Cargar preferencias
+        loadPreferences();
+        
+        // Cargar idioma
+        loadLanguage(currentLanguage);
+        
+        // Añadir animaciones
+        setTimeout(addLoadingAnimations, 100);
+        
+        // Inicializar tooltips de Bootstrap si existen
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
     }
     
     // Ejecutar inicialización
-    initializePage();
+    initializeApp();
     
-    // Escuchar cambios en la ruta para detectar cambios de página
-    let lastPath = window.location.pathname;
-    setInterval(() => {
-        if (window.location.pathname !== lastPath) {
-            lastPath = window.location.pathname;
-            // Recargar traducciones si cambia la página
-            setTimeout(() => loadLanguage(currentLanguage), 500);
+    // ========== PREVENT FORM RESUBMISSION ON PAGE RELOAD ==========
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+    
+    // ========== LAZY LOADING IMAGES ==========
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                        observer.unobserve(img);
+                    }
+                }
+            });
+        });
+        
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            imageObserver.observe(img);
+        });
+    }
+    
+    // ========== ACCESSIBILITY IMPROVEMENTS ==========
+    // Añadir indicadores de enfoque mejorados
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Tab') {
+            document.body.classList.add('keyboard-nav');
         }
-    }, 1000);
+    });
+    
+    document.addEventListener('mousedown', function() {
+        document.body.classList.remove('keyboard-nav');
+    });
+    
+    // ========== PERFORMANCE OPTIMIZATION ==========
+    // Debounce para eventos de scroll
+    let scrollTimeout;
+    let lastScrollPosition = window.pageYOffset;
+    
+    window.addEventListener('scroll', function() {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(function() {
+            lastScrollPosition = window.pageYOffset;
+        }, 100);
+    }, { passive: true });
+    
 });
 
-// Función global para cambiar idioma manualmente si es necesario
-function changeLanguage(lang) {
-    if (window.edulineApp && window.edulineApp.loadLanguage) {
-        window.edulineApp.loadLanguage(lang);
-    }
-}
-
-// Exportar funciones para uso global (opcional)
-window.edulineApp = {
-    changeLanguage: function(lang) {
-        if (document.edulineTranslations) {
-            document.edulineTranslations.loadLanguage(lang);
-        }
+// ========== GLOBAL FUNCTIONS ==========
+// Función global para cambiar idioma
+window.changeLanguage = function(lang) {
+    const languageSelect = document.getElementById('languageSelect');
+    if (languageSelect) {
+        languageSelect.value = lang;
+        languageSelect.dispatchEvent(new Event('change'));
     }
 };
 
+// Prevenir errores en consola
+window.addEventListener('error', function(e) {
+    console.error('Error capturado:', e.message);
+    return true;
+});
+
+// Exportar para uso en consola (desarrollo)
+window.edulineApp = {
+    version: '2.0',
+    changeLanguage: window.changeLanguage
+};

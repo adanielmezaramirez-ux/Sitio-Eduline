@@ -2,337 +2,400 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>EDULINE - Perfeccionando tu aprendizaje</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="LogoEduline.svg">
 </head>
 <body>
-    <!-- Navbar mejorada -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container-custom">
+    <!-- Navbar mejorada con Bootstrap 5 -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light shadow-sm">
+        <div class="container-fluid px-lg-5">
             <a class="navbar-brand" href="#inicio">
-                <img src="LogoEduline.svg" alt="Logo Eduline" height="80" class="d-inline-block align-top">
+                <img src="LogoEduline.svg" alt="Logo Eduline" height="60" class="d-inline-block align-top">
             </a>
             
-            <!-- Selector de idioma -->
-            <div class="language-selector mr-3">
-                <select id="languageSelect" class="form-control form-control-sm">
-                    <option value="es">Español</option>
-                    <option value="en">English</option>
-                    <option value="por">Português</option>
-                </select>
-            </div>
-            
-            <!-- Modo oscuro/claro -->
-            <div class="theme-toggle mr-3">
-                <button id="themeToggle" class="btn btn-sm btn-outline-secondary">
-                    <i class="fas fa-moon"></i> <span class="theme-text">Oscuro</span>
-                </button>
-            </div>
-            
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#inicio" data-i18n="nav.home">Inicio</a>
+                        <a class="nav-link px-3" href="#inicio" data-i18n="nav.home">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#caracteristicas" data-i18n="nav.features">Características</a>
+                        <a class="nav-link px-3" href="#caracteristicas" data-i18n="nav.features">Características</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#planes" data-i18n="nav.plans">Planes</a>
+                        <a class="nav-link px-3" href="#planes" data-i18n="nav.plans">Planes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contacto" data-i18n="nav.contact">Contacto</a>
-                    </li>
-                    <li class="nav-item ml-lg-3">
-                        <a class="btn btn-outline-success" href="mailto:cursos@eduline.com.mx?subject=Solicitud%20de%20Información%20-%20Planes%20EDULINE&body=Hola,%20me%20interesa%20conocer%20más%20sobre%20los%20planes%20de%20EDULINE.%20Por%20favor%20enviarme%20más%20información.%0D%0A%0D%0AMi%20nombre%20es:%0D%0AMi%20teléfono%20es:%0D%0AMi%20interés%20principal%20es:" data-i18n="nav.getStarted">Comenzar Ahora</a>
+                        <a class="nav-link px-3" href="#contacto" data-i18n="nav.contact">Contacto</a>
                     </li>
                 </ul>
+                
+                <div class="d-flex flex-column flex-lg-row align-items-center gap-2 ms-lg-3 mt-3 mt-lg-0">
+                    <!-- Selector de idioma -->
+                    <div class="language-selector">
+                        <select id="languageSelect" class="form-select form-select-sm">
+                            <option value="es">🇪🇸 Español</option>
+                            <option value="en">🇺🇸 English</option>
+                            <option value="pt">🇵🇹 Português</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Modo oscuro/claro -->
+                    <div class="theme-toggle">
+                        <button id="themeToggle" class="btn btn-outline-secondary btn-sm">
+                            <i class="fas fa-moon"></i>
+                            <span class="theme-text d-none d-md-inline ms-1" data-i18n="themeDark"> Oscuro</span>
+                        </button>
+                    </div>
+                    
+                    <a href="#planes" class="btn btn-success btn-sm px-4" data-i18n="nav.getStarted">
+                        Comenzar Ahora
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Banner con video mejorado -->
-    <section id="inicio" class="video-banner">
-        <div class="video-overlay"></div>
-        <video autoplay muted loop playsinline id="heroVideo">
-            <source src="http://ximg.es/1280x720/000/fff&text=EDULINE+Video+Demo" type="video/mp4">
-            Tu navegador no soporta el tag de video.
-        </video>
-        
-        <!-- Control de video -->
-        <div class="video-controls">
-            <button id="videoToggle" class="btn btn-light btn-sm">
-                <i class="fas fa-play" id="playIcon"></i>
-                <i class="fas fa-pause" id="pauseIcon" style="display: none;"></i>
-            </button>
-            <button id="videoVolume" class="btn btn-light btn-sm ml-2">
-                <i class="fas fa-volume-up"></i>
-            </button>
+    <!-- Banner hero -->
+    <section id="inicio" class="hero-section position-relative overflow-hidden">
+        <div class="video-container">
+            <video autoplay muted loop playsinline id="heroVideo" class="w-100 h-100 object-fit-cover">
+                <source src="http://ximg.es/1280x720/000/fff&text=EDULINE+Video+Demo" type="video/mp4">
+            </video>
+            <div class="video-overlay position-absolute top-0 start-0 w-100 h-100"></div>
         </div>
         
-        <div class="banner-content">
-            <div class="title-container">
-                <h1 class="display-3 font-weight-bold" data-i18n="banner.title">EDULINE</h1>
-                <p class="lead" data-i18n="banner.subtitle">Perfeccionando tu aprendizaje con tecnología avanzada</p>
-            </div>
-            <div class="banner-cta mt-4">
-                <a href="mailto:cursos@eduline.com.mx?subject=Solicitud%20de%20Información%20-%20Planes%20EDULINE&body=Hola,%20me%20interesa%20conocer%20más%20sobre%20los%20planes%20de%20EDULINE.%20Por%20favor%20enviarme%20más%20información.%0D%0A%0D%0AMi%20nombre%20es:%0D%0AMi%20teléfono%20es:%0D%0AMi%20interés%20principal%20es:" class="btn btn-success btn-lg px-5 py-3 font-weight-bold mr-3">
-                    <i class="fas fa-shopping-cart mr-2"></i><span data-i18n="banner.getStarted">Comenzar Ahora</span>
-                </a>
-                <a href="#caracteristicas" class="btn btn-outline-light btn-lg px-5 py-3">
-                    <i class="fas fa-play-circle mr-2"></i><span data-i18n="banner.learnMore">Ver Más</span>
-                </a>
+        <div class="container-fluid px-lg-5 position-relative z-2">
+            <div class="row min-vh-100 align-items-center">
+                <div class="col-12 col-lg-10 col-xl-8 mx-auto text-center text-white">
+                    <h1 class="display-1 fw-bold mb-4 animate-fade-in" data-i18n="banner.title">EDULINE</h1>
+                    <p class="lead fs-3 mb-5 animate-fade-in-delay" data-i18n="banner.subtitle">Perfeccionando tu aprendizaje con tecnología avanzada</p>
+                    
+                    <div class="d-flex flex-column flex-sm-row justify-content-center gap-3 animate-fade-in-delay-2">
+                        <a href="#planes" class="btn btn-light btn-lg px-4 px-md-5 py-3 fw-bold" data-i18n="banner.getStarted">
+                            <i class="fas fa-rocket me-2"></i>Comenzar Ahora
+                        </a>
+                        <a href="#caracteristicas" class="btn btn-outline-light btn-lg px-4 px-md-5 py-3" data-i18n="banner.learnMore">
+                            <i class="fas fa-play-circle me-2"></i>Ver Más
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
         
-        <div class="scroll-indicator">
-            <a href="#caracteristicas" class="text-white">
-                <i class="fas fa-chevron-down floating"></i>
-            </a>
+        <a href="#caracteristicas" class="position-absolute bottom-0 start-50 translate-middle-x mb-4 text-white text-decoration-none d-none d-md-block">
+            <i class="fas fa-chevron-down fa-2x floating"></i>
+        </a>
+    </section>
+
+    <!-- Características -->
+    <section id="caracteristicas" class="py-5 py-lg-6 bg-light">
+        <div class="container-fluid px-lg-5">
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold mb-3" data-i18n="features.title">¿Qué Ofrecemos?</h2>
+                <p class="lead text-muted col-lg-8 mx-auto" data-i18n="features.subtitle">
+                    Transformamos la educación con soluciones innovadoras diseñadas para el éxito estudiantil
+                </p>
+            </div>
+
+            <div class="row g-4 g-lg-5">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card feature-card h-100 border-0 shadow-sm hover-lift">
+                        <div class="card-body text-center p-4 p-lg-5">
+                            <div class="feature-icon mb-4">
+                                <i class="fas fa-bolt fa-3x text-primary"></i>
+                            </div>
+                            <h3 class="h4 fw-bold mb-3" data-i18n="features.practicality.title">Practicidad</h3>
+                            <p class="mb-4 text-muted" data-i18n="features.practicality.description">
+                                Accede a contenido educativo desde cualquier dispositivo, en cualquier momento.
+                            </p>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <span data-i18n="features.practicality.list1">Acceso 24/7</span>
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <span data-i18n="features.practicality.list2">Interfaz amigable</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <span data-i18n="features.practicality.list3">Multiplataforma</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card feature-card h-100 border-0 shadow-sm hover-lift">
+                        <div class="card-body text-center p-4 p-lg-5">
+                            <div class="feature-icon mb-4">
+                                <i class="fas fa-user-graduate fa-3x text-primary"></i>
+                            </div>
+                            <h3 class="h4 fw-bold mb-3" data-i18n="features.professionalism.title">Profesionalidad</h3>
+                            <p class="mb-4 text-muted" data-i18n="features.professionalism.description">
+                                Contenido creado por expertos en educación y pedagogía.
+                            </p>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <span data-i18n="features.professionalism.list1">Expertos certificados</span>
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <span data-i18n="features.professionalism.list2">Contenido actualizado</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <span data-i18n="features.professionalism.list3">Seguimiento personalizado</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 mx-auto">
+                    <div class="card feature-card h-100 border-0 shadow-sm hover-lift">
+                        <div class="card-body text-center p-4 p-lg-5">
+                            <div class="feature-icon mb-4">
+                                <i class="fas fa-laptop-code fa-3x text-primary"></i>
+                            </div>
+                            <h3 class="h4 fw-bold mb-3" data-i18n="features.technology.title">Tecnología Especializada</h3>
+                            <p class="mb-4 text-muted" data-i18n="features.technology.description">
+                                Utilizamos IA y análisis de datos para personalizar tu experiencia.
+                            </p>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <span data-i18n="features.technology.list1">Inteligencia Artificial</span>
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <span data-i18n="features.technology.list2">Análisis de progreso</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <span data-i18n="features.technology.list3">Adaptación inteligente</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Sección de características mejorada -->
-    <section id="caracteristicas" class="company-info">
-        <div class="container-custom">
-            <div class="section-title text-center mb-5">
-                <h2 class="display-4 font-weight-bold" data-i18n="features.title">¿Qué Ofrecemos?</h2>
-                <p class="lead" data-i18n="features.subtitle">Transformamos la educación con soluciones innovadoras diseñadas para el éxito estudiantil</p>
-            </div>
-            
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <h3 data-i18n="features.practicality.title">Practicidad</h3>
-                        <p data-i18n="features.practicality.description">Accede a contenido educativo desde cualquier dispositivo, en cualquier momento. Plataforma intuitiva diseñada para facilitar tu aprendizaje.</p>
-                        <ul class="list-unstyled mt-3">
-                            <li><i class="fas fa-check text-success mr-2"></i><span data-i18n="features.practicality.list1">Acceso 24/7</span></li>
-                            <li><i class="fas fa-check text-success mr-2"></i><span data-i18n="features.practicality.list2">Interfaz amigable</span></li>
-                            <li><i class="fas fa-check text-success mr-2"></i><span data-i18n="features.practicality.list3">Multiplataforma</span></li>
-                        </ul>
-                    </div>
+    <!-- Carrusel de características -->
+    <section class="carousel-section py-5 bg-white">
+        <div class="container-fluid px-lg-5">
+            <div id="featuresCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#featuresCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#featuresCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#featuresCarousel" data-bs-slide-to="2"></button>
                 </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-user-graduate"></i>
-                        </div>
-                        <h3 data-i18n="features.professionalism.title">Profesionalidad</h3>
-                        <p data-i18n="features.professionalism.description">Contenido creado por expertos en educación y pedagogía. Garantizamos calidad y actualización constante de materiales.</p>
-                        <ul class="list-unstyled mt-3">
-                            <li><i class="fas fa-check text-success mr-2"></i><span data-i18n="features.professionalism.list1">Expertos certificados</span></li>
-                            <li><i class="fas fa-check text-success mr-2"></i><span data-i18n="features.professionalism.list2">Contenido actualizado</span></li>
-                            <li><i class="fas fa-check text-success mr-2"></i><span data-i18n="features.professionalism.list3">Seguimiento personalizado</span></li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-microchip"></i>
-                        </div>
-                        <h3 data-i18n="features.technology.title">Tecnología Especializada</h3>
-                        <p data-i18n="features.technology.description">Utilizamos IA y análisis de datos para personalizar tu experiencia de aprendizaje y maximizar tus resultados.</p>
-                        <ul class="list-unstyled mt-3">
-                            <li><i class="fas fa-check text-success mr-2"></i><span data-i18n="features.technology.list1">Inteligencia Artificial</span></li>
-                            <li><i class="fas fa-check text-success mr-2"></i><span data-i18n="features.technology.list2">Análisis de progreso</span></li>
-                            <li><i class="fas fa-check text-success mr-2"></i><span data-i18n="features.technology.list3">Adaptación inteligente</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Carrusel mejorado -->
-    <section class="carousel-section">
-        <div class="container-custom">
-            <div id="imageCarousel" class="carousel slide" data-ride="carousel" data-interval="4000">
-                <ol class="carousel-indicators">
-                    <li data-target="#imageCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#imageCarousel" data-slide-to="1"></li>
-                    <li data-target="#imageCarousel" data-slide-to="2"></li>
-                </ol>
                 
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="http://ximg.es/1200x600/000/fff&text=Aprendizaje+Interactivo" class="d-block w-100" alt="Aprendizaje Interactivo">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h3 class="display-4" data-i18n="carousel.slide1.title">Aprendizaje Interactivo</h3>
-                            <p data-i18n="carousel.slide1.description">Experiencias educativas envolventes que capturan tu atención</p>
+                        <div class="row align-items-center min-vh-50">
+                            <div class="col-12 col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
+                                <h3 class="display-5 fw-bold mb-3" data-i18n="carousel.slide1.title">Aprendizaje Interactivo</h3>
+                                <p class="lead text-muted" data-i18n="carousel.slide1.description">
+                                    Experiencias educativas envolventes que capturan tu atención
+                                </p>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <img src="http://ximg.es/800x600/419e46/fff&text=Interactive+Learning" class="img-fluid rounded shadow" alt="Aprendizaje Interactivo">
+                            </div>
                         </div>
                     </div>
+                    
                     <div class="carousel-item">
-                        <img src="http://ximg.es/1200x600/000/fff&text=Tecnología+Educativa" class="d-block w-100" alt="Tecnología Educativa">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h3 class="display-4" data-i18n="carousel.slide2.title">Tecnología Avanzada</h3>
-                            <p data-i18n="carousel.slide2.description">Herramientas de vanguardia para el aprendizaje del siglo XXI</p>
+                        <div class="row align-items-center min-vh-50">
+                            <div class="col-12 col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
+                                <h3 class="display-5 fw-bold mb-3" data-i18n="carousel.slide2.title">Tecnología Avanzada</h3>
+                                <p class="lead text-muted" data-i18n="carousel.slide2.description">
+                                    Herramientas de vanguardia para el aprendizaje del siglo XXI
+                                </p>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <img src="http://ximg.es/800x600/357634/fff&text=Advanced+Tech" class="img-fluid rounded shadow" alt="Tecnología Avanzada">
+                            </div>
                         </div>
                     </div>
+                    
                     <div class="carousel-item">
-                        <img src="http://ximg.es/1200x600/000/fff&text=Comunidad+Global" class="d-block w-100" alt="Colaboración">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h3 class="display-4" data-i18n="carousel.slide3.title">Comunidad Global</h3>
-                            <p data-i18n="carousel.slide3.description">Conecta con estudiantes y profesionales alrededor del mundo</p>
+                        <div class="row align-items-center min-vh-50">
+                            <div class="col-12 col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
+                                <h3 class="display-5 fw-bold mb-3" data-i18n="carousel.slide3.title">Comunidad Global</h3>
+                                <p class="lead text-muted" data-i18n="carousel.slide3.description">
+                                    Conecta con estudiantes y profesionales alrededor del mundo
+                                </p>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <img src="http://ximg.es/800x600/6bbf70/fff&text=Global+Community" class="img-fluid rounded shadow" alt="Comunidad Global">
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#featuresCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Anterior</span>
-                </a>
-                <a class="carousel-control-next" href="#imageCarousel" role="button" data-slide="next">
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#featuresCarousel" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Siguiente</span>
-                </a>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- Planes de suscripción mejorados -->
-    <section id="planes" class="subscription-plans">
-        <div class="container-custom">
-            <div class="section-title text-center mb-5">
-                <h2 class="display-4 font-weight-bold" data-i18n="plans.title">Planes de Suscripción</h2>
-                <p class="lead" data-i18n="plans.subtitle">Elige el plan que mejor se adapte a tus necesidades educativas</p>
+    <!-- Planes de suscripción -->
+    <section id="planes" class="py-5 py-lg-6 bg-light">
+        <div class="container-fluid px-lg-5">
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold mb-3" data-i18n="plans.title">Planes de Suscripción</h2>
+                <p class="lead text-muted col-lg-8 mx-auto" data-i18n="plans.subtitle">
+                    Elige el plan que mejor se adapte a tus necesidades educativas
+                </p>
             </div>
-            
-            <div class="row">
+
+            <div class="row g-4 g-lg-5 justify-content-center">
                 <!-- Plan Básico -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="plan-card">
-                        <div class="plan-header">
-                            <h3><i class="fas fa-seedling mr-2"></i><span data-i18n="plans.basic.title">Plan Básico</span></h3>
-                            <p data-i18n="plans.basic.tagline">Ideal para empezar</p>
-                            <div class="plan-price">
-                                <span class="currency">$</span>99
-                                <span class="plan-period" data-i18n="plans.perMonth">/mes</span>
-                            </div>
-                        </div>
-                        <div class="plan-body">
-                            <ul class="plan-features">
-                                <li><i class="fas fa-check-circle mr-2"></i><span data-i18n="plans.basic.feature1">Acceso a cursos básicos</span></li>
-                                <li><i class="fas fa-check-circle mr-2"></i><span data-i18n="plans.basic.feature2">5 horas de tutoría mensual</span></li>
-                                <li><i class="fas fa-check-circle mr-2"></i><span data-i18n="plans.basic.feature3">Material descargable</span></li>
-                                <li><i class="fas fa-check-circle mr-2"></i><span data-i18n="plans.basic.feature4">Soporte por email</span></li>
-                                <li><i class="fas fa-times-circle mr-2 text-muted"></i><span class="text-muted" data-i18n="plans.basic.feature5">Certificados de finalización</span></li>
-                            </ul>
-                            <a href="mailto:cursos@eduline.com.mx?subject=Solicitud%20-%20Plan%20Básico%20EDULINE&body=Hola,%20me%20interesa%20suscribirme%20al%20Plan%20Básico%20de%20EDULINE.%20Por%20favor%20enviarme%20más%20información.%0D%0A%0D%0AMi%20nombre%20es:%0D%0AMi%20teléfono%20es:%0D%0APreguntas%20específicas:" class="btn btn-outline-success btn-block btn-lg py-3">
-                                <i class="fas fa-shopping-cart mr-2"></i><span data-i18n="plans.choosePlan">Elegir Plan</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Plan Estándar (Destacado) -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="plan-card plan-highlight">
-                        <div class="plan-header">
-                            <h3><i class="fas fa-star mr-2"></i><span data-i18n="plans.standard.title">Plan Estándar</span></h3>
-                            <p data-i18n="plans.standard.tagline">Más popular</p>
-                            <div class="plan-price">
-                                <span class="currency">$</span>199
-                                <span class="plan-period" data-i18n="plans.perMonth">/mes</span>
-                            </div>
-                        </div>
-                        <div class="plan-body">
-                            <ul class="plan-features">
-                                <li><i class="fas fa-check-circle mr-2"></i><span data-i18n="plans.standard.feature1">Todos los cursos básicos</span></li>
-                                <li><i class="fas fa-check-circle mr-2"></i><span data-i18n="plans.standard.feature2">15 horas de tutoría mensual</span></li>
-                                <li><i class="fas fa-check-circle mr-2"></i><span data-i18n="plans.standard.feature3">Material premium</span></li>
-                                <li><i class="fas fa-check-circle mr-2"></i><span data-i18n="plans.standard.feature4">Soporte prioritario</span></li>
-                                <li><i class="fas fa-check-circle mr-2"></i><span data-i18n="plans.standard.feature5">Certificados oficiales</span></li>
-                            </ul>
-                            <a href="mailto:cursos@eduline.com.mx?subject=Solicitud%20-%20Plan%20Estándar%20EDULINE&body=Hola,%20me%20interesa%20suscribirme%20al%20Plan%20Estándar%20de%20EDULINE.%20Por%20favor%20enviarme%20más%20información.%0D%0A%0D%0AMi%20nombre%20es:%0D%0AMi%20teléfono%20es:%0D%0APreguntas%20específicas:" class="btn btn-light btn-block btn-lg py-3 font-weight-bold">
-                                <i class="fas fa-shopping-cart mr-2"></i><span data-i18n="plans.startToday">Comenzar Hoy</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Plan Premium -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="plan-card">
-                        <div class="plan-header">
-                            <h3><i class="fas fa-crown mr-2"></i><span data-i18n="plans.premium.title">Plan Premium</span></h3>
-                            <p data-i18n="plans.premium.tagline">Experiencia completa</p>
-                            <div class="plan-price">
-                                <span class="currency">$</span>299
-                                <span class="plan-period" data-i18n="plans.perMonth">/mes</span>
-                            </div>
-                        </div>
-                        <div class="plan-body">
-                            <ul class="plan-features">
-                                <li><i class="fas fa-check-circle mr-2"></i><span data-i18n="plans.premium.feature1">Acceso a todos los cursos</span></li>
-                                <li><i class="fas fa-check-circle mr-2"></i><span data-i18n="plans.premium.feature2">Tutoría ilimitada</span></li>
-                                <li><i class="fas fa-check-circle mr-2"></i><span data-i18n="plans.premium.feature3">Contenido exclusivo</span></li>
-                                <li><i class="fas fa-check-circle mr-2"></i><span data-i18n="plans.premium.feature4">Soporte 24/7</span></li>
-                                <li><i class="fas fa-check-circle mr-2"></i><span data-i18n="plans.premium.feature5">Certificación premium</span></li>
-                            </ul>
-                            <a href="mailto:cursos@eduline.com.mx?subject=Solicitud%20-%20Plan%20Premium%20EDULINE&body=Hola,%20me%20interesa%20suscribirme%20al%20Plan%20Premium%20de%20EDULINE.%20Por%20favor%20enviarme%20más%20información.%0D%0A%0D%0AMi%20nombre%20es:%0D%0AMi%20teléfono%20es:%0D%0APreguntas%20específicas:" class="btn btn-outline-success btn-block btn-lg py-3">
-                                <i class="fas fa-shopping-cart mr-2"></i><span data-i18n="plans.choosePlan">Elegir Plan</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección CTA mejorada -->
-    <section id="contacto" class="section-cta">
-        <div class="container-custom">
-            <div class="cta-box">
-                <h3 class="display-4 font-weight-bold" data-i18n="cta.title">¿Necesitas un Plan Personalizado?</h3>
-                <p class="lead" data-i18n="cta.subtitle">Contáctanos y crearemos una solución a medida para tus necesidades educativas</p>
-                
-                <div class="or-divider my-5">
-                    <span class="px-4 py-2" data-i18n="cta.or">O</span>
-                </div>
-                
-                <div class="email-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="email" class="sr-only" data-i18n="cta.emailPlaceholder">Correo Electrónico</label>
-                            <div class="input-group input-group-lg">
-                                <input type="email" class="form-control form-control-lg" id="email" placeholder="tu-correo@ejemplo.com" required>
-                                <div class="input-group-append">
-                                    <button type="submit" class="btn btn-cta px-4">
-                                        <i class="fas fa-paper-plane mr-2"></i><span data-i18n="cta.send">Enviar</span>
-                                    </button>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card plan-card h-100 border-0 shadow-sm hover-lift">
+                        <div class="card-body p-4 p-lg-5">
+                            <div class="text-center mb-4">
+                                <h3 class="h4 fw-bold" data-i18n="plans.basic.title">Plan Básico</h3>
+                                <p class="text-muted mb-4" data-i18n="plans.basic.tagline">Ideal para empezar</p>
+                                <div class="price-tag">
+                                    <span class="h2 fw-bold">$29</span>
+                                    <span class="text-muted" data-i18n="plans.perMonth">/mes</span>
                                 </div>
                             </div>
-                            <small class="form-text text-light mt-2" data-i18n="cta.responseTime">Te contactaremos en menos de 24 horas</small>
-                        </div>
-                    </form>
-                </div>
-                
-                <div class="mt-5">
-                    <p class="mb-3" data-i18n="cta.contactDirectly">También puedes contactarnos directamente:</p>
-                    <div class="row justify-content-center">
-                        <div class="col-auto">
-                            <a href="tel:+523333333333" class="btn btn-outline-light btn-lg mx-2">
-                                <i class="fas fa-phone mr-2"></i><span data-i18n="cta.call">Llamar</span>
+                            
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-3">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span data-i18n="plans.basic.feature1">Acceso a cursos básicos</span>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span data-i18n="plans.basic.feature2">5 horas de tutoría mensual</span>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span data-i18n="plans.basic.feature3">Material descargable</span>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span data-i18n="plans.basic.feature4">Soporte por email</span>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span data-i18n="plans.basic.feature5">Certificados de finalización</span>
+                                </li>
+                            </ul>
+                            
+                            <a href="#contacto" class="btn btn-outline-success w-100 py-3" data-i18n="plans.choosePlan">
+                                Elegir Plan
                             </a>
                         </div>
-                        <div class="col-auto">
-                            <a href="mailto:cursos@eduline.com.mx" class="btn btn-outline-light btn-lg mx-2">
-                                <i class="fas fa-envelope mr-2"></i><span data-i18n="cta.email">Email</span>
+                    </div>
+                </div>
+
+                <!-- Plan Estándar (Destacado) -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card plan-card plan-highlight h-100 border-0 shadow-lg hover-lift position-relative">
+                        <div class="card-body p-4 p-lg-5">
+                            <div class="text-center mb-4">
+                                <h3 class="h4 fw-bold" data-i18n="plans.standard.title">Plan Estándar</h3>
+                                <p class="text-muted mb-4" data-i18n="plans.standard.tagline">Más popular</p>
+                                <div class="price-tag">
+                                    <span class="h2 fw-bold">$59</span>
+                                    <span class="text-muted" data-i18n="plans.perMonth">/mes</span>
+                                </div>
+                            </div>
+                            
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-3">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span data-i18n="plans.standard.feature1">Todos los cursos básicos</span>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span data-i18n="plans.standard.feature2">15 horas de tutoría mensual</span>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span data-i18n="plans.standard.feature3">Material premium</span>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span data-i18n="plans.standard.feature4">Soporte prioritario</span>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span data-i18n="plans.standard.feature5">Certificados oficiales</span>
+                                </li>
+                            </ul>
+                            
+                            <a href="#contacto" class="btn btn-success w-100 py-3" data-i18n="plans.startToday">
+                                Comenzar Hoy
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plan Premium -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card plan-card h-100 border-0 shadow-sm hover-lift">
+                        <div class="card-body p-4 p-lg-5">
+                            <div class="text-center mb-4">
+                                <h3 class="h4 fw-bold" data-i18n="plans.premium.title">Plan Premium</h3>
+                                <p class="text-muted mb-4" data-i18n="plans.premium.tagline">Experiencia completa</p>
+                                <div class="price-tag">
+                                    <span class="h2 fw-bold">$99</span>
+                                    <span class="text-muted" data-i18n="plans.perMonth">/mes</span>
+                                </div>
+                            </div>
+                            
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-3">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span data-i18n="plans.premium.feature1">Acceso a todos los cursos</span>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span data-i18n="plans.premium.feature2">Tutoría ilimitada</span>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span data-i18n="plans.premium.feature3">Contenido exclusivo</span>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span data-i18n="plans.premium.feature4">Soporte 24/7</span>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span data-i18n="plans.premium.feature5">Certificación premium</span>
+                                </li>
+                            </ul>
+                            
+                            <a href="#contacto" class="btn btn-outline-success w-100 py-3" data-i18n="plans.choosePlan">
+                                Elegir Plan
                             </a>
                         </div>
                     </div>
@@ -341,162 +404,264 @@
         </div>
     </section>
 
-    <!-- Footer mejorado -->
-    <footer class="footer">
-        <div class="container-custom">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-5">
-                    <div class="footer-brand mb-4">
-                        <img src="LogoEduline.svg" alt="Logo Eduline" height="60" class="mr-2">
-                    </div>
-                    <p class="mb-4" data-i18n="footer.description">Transformando la educación a través de tecnología innovadora y contenido de calidad.</p>
-                    <div class="social-icons">
-                        <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+    <!-- Sección de contacto -->
+    <section id="contacto" class="py-5 py-lg-6 bg-white">
+        <div class="container-fluid px-lg-5">
+            <div class="row g-4 g-lg-5">
+                <div class="col-12 col-lg-6">
+                    <div class="cta-content">
+                        <h2 class="display-5 fw-bold mb-4" data-i18n="cta.title">¿Necesitas un Plan Personalizado?</h2>
+                        <p class="lead text-muted mb-5" data-i18n="cta.subtitle">
+                            Contáctanos y crearemos una solución a medida para tus necesidades educativas
+                        </p>
+                        
+                        <div class="contact-info mb-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="icon-box me-3">
+                                    <i class="fas fa-phone text-success"></i>
+                                </div>
+                                <div>
+                                    <p class="mb-0 fw-bold">Teléfono</p>
+                                    <a href="tel:+1234567890" class="text-decoration-none">+1 (234) 567-890</a>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="icon-box me-3">
+                                    <i class="fas fa-envelope text-success"></i>
+                                </div>
+                                <div>
+                                    <p class="mb-0 fw-bold">Email</p>
+                                    <a href="/cdn-cgi/l/email-protection#355c5b535a75505140595c5b501b565a58" class="text-decoration-none"><span class="__cf_email__" data-cfemail="b3daddd5dcf3d6d7c6dfdaddd69dd0dcde">[email&#160;protected]</span></a>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex align-items-center">
+                                <div class="icon-box me-3">
+                                    <i class="fas fa-map-marker-alt text-success"></i>
+                                </div>
+                                <div>
+                                    <p class="mb-0 fw-bold">Dirección</p>
+                                    <p class="mb-0" data-i18n="footer.address">Calle Ejemplo #123, Ciudad, CP 12345</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links">
+                            <p class="fw-bold mb-3">Síguenos en redes sociales</p>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-outline-secondary btn-sm">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary btn-sm">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary btn-sm">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary btn-sm">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="col-lg-4 col-md-6 mb-5">
-                    <h4 data-i18n="footer.contactInfo">Información de Contacto</h4>
-                    <div class="contact-info">
-                        <p class="mb-3">
-                            <i class="fas fa-map-marker-alt mr-3 text-success"></i>
-                            <span data-i18n="footer.address">Calle Ejemplo #123, Ciudad, CP 12345</span>
+                <div class="col-12 col-lg-6">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4 p-lg-5">
+                            <form id="contactForm" class="needs-validation" novalidate>
+                                <div class="mb-4">
+                                    <label for="name" class="form-label fw-bold">Nombre completo</label>
+                                    <input type="text" class="form-control form-control-lg" id="name" required>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa tu nombre
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label for="email" class="form-label fw-bold">Correo Electrónico</label>
+                                    <input type="email" class="form-control form-control-lg" id="email" required>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa un correo válido
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label for="phone" class="form-label fw-bold">Teléfono (opcional)</label>
+                                    <input type="tel" class="form-control form-control-lg" id="phone">
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label for="message" class="form-label fw-bold">Mensaje</label>
+                                    <textarea class="form-control form-control-lg" id="message" rows="5" required></textarea>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa tu mensaje
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-success btn-lg w-100 py-3">
+                                    <i class="fas fa-paper-plane me-2"></i>Enviar Mensaje
+                                </button>
+                                
+                                <p class="text-center text-muted mt-3 mb-0">
+                                    <small><i class="fas fa-clock me-1"></i>Te contactaremos en menos de 24 horas</small>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container-fluid px-lg-5">
+            <div class="row g-4 g-lg-5">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="mb-4">
+                        <img src="LogoEduline.svg" alt="Logo Eduline" height="50" class="mb-3">
+                        <p data-i18n="footer.description">Transformando la educación a través de tecnología innovadora y contenido de calidad.</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="btn btn-outline-light btn-sm me-2 mb-2">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-light btn-sm me-2 mb-2">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-light btn-sm me-2 mb-2">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-light btn-sm mb-2">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-6 col-lg-4">
+                    <h4 class="h5 fw-bold mb-4" data-i18n="footer.quickLinks">Enlaces Rápidos</h4>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <a href="#inicio" class="text-white text-decoration-none hover-link">
+                                        <i class="fas fa-chevron-right me-2 text-success"></i>
+                                        <span data-i18n="nav.home">Inicio</span>
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#caracteristicas" class="text-white text-decoration-none hover-link">
+                                        <i class="fas fa-chevron-right me-2 text-success"></i>
+                                        <span data-i18n="nav.features">Características</span>
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#planes" class="text-white text-decoration-none hover-link">
+                                        <i class="fas fa-chevron-right me-2 text-success"></i>
+                                        <span data-i18n="nav.plans">Planes</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <a href="#contacto" class="text-white text-decoration-none hover-link">
+                                        <i class="fas fa-chevron-right me-2 text-success"></i>
+                                        <span data-i18n="nav.contact">Contacto</span>
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#" class="text-white text-decoration-none modal-link hover-link" data-modal="privacy">
+                                        <i class="fas fa-chevron-right me-2 text-success"></i>
+                                        <span data-i18n="footer.privacyPolicy">Privacidad</span>
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#" class="text-white text-decoration-none modal-link hover-link" data-modal="terms">
+                                        <i class="fas fa-chevron-right me-2 text-success"></i>
+                                        <span data-i18n="footer.termsOfService">Términos</span>
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#" class="text-white text-decoration-none modal-link hover-link" data-modal="faq">
+                                        <i class="fas fa-chevron-right me-2 text-success"></i>
+                                        <span data-i18n="footer.faq">FAQ</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-lg-4">
+                    <h4 class="h5 fw-bold mb-4">Newsletter</h4>
+                    <p class="mb-3">Suscríbete para recibir novedades educativas</p>
+                    <form class="mb-4" id="newsletterForm">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Tu correo electrónico" required>
+                            <button class="btn btn-success" type="submit">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div class="contact-info-footer">
+                        <p class="mb-2">
+                            <i class="fas fa-phone me-2 text-success"></i>
+                            <a href="tel:+1234567890" class="text-white text-decoration-none">+1 (234) 567-890</a>
                         </p>
-                        <p class="mb-3">
-                            <i class="fas fa-phone mr-3 text-success"></i>
-                            (333) 333-3333
+                        <p class="mb-2">
+                            <i class="fas fa-envelope me-2 text-success"></i>
+                            <a href="/cdn-cgi/l/email-protection#c9a0a7afa689acadbca5a0a7ace7aaa6a4" class="text-white text-decoration-none"><span class="__cf_email__" data-cfemail="4c25222a230c29283920252229622f2321">[email&#160;protected]</span></a>
                         </p>
-                        <p class="mb-3">
-                            <i class="fas fa-envelope mr-3 text-success"></i>
-                            cursos@eduline.com.mx
-                        </p>
-                        <p>
-                            <i class="fas fa-clock mr-3 text-success"></i>
+                        <p class="mb-0">
+                            <i class="fas fa-clock me-2 text-success"></i>
                             <span data-i18n="footer.hours">Lunes - Viernes: 9:00 AM - 6:00 PM</span>
                         </p>
                     </div>
                 </div>
-                
-                <div class="col-lg-4 col-md-12 mb-5">
-                    <h4 data-i18n="footer.quickLinks">Enlaces Rápidos</h4>
-                    <div class="row">
-                        <div class="col-6">
-                            <ul class="list-unstyled">
-                                <li class="mb-2"><a href="#inicio"><i class="fas fa-chevron-right mr-2 text-success"></i><span data-i18n="nav.home">Inicio</span></a></li>
-                                <li class="mb-2"><a href="#caracteristicas"><i class="fas fa-chevron-right mr-2 text-success"></i><span data-i18n="nav.features">Características</span></a></li>
-                                <li class="mb-2"><a href="#planes"><i class="fas fa-chevron-right mr-2 text-success"></i><span data-i18n="nav.plans">Planes</span></a></li>
-                                <li><a href="#contacto"><i class="fas fa-chevron-right mr-2 text-success"></i><span data-i18n="nav.contact">Contacto</span></a></li>
-                            </ul>
-                        </div>
-                        <div class="col-6">
-                            <ul class="list-unstyled">
-                                <li class="mb-2"><a href="#" class="modal-link" data-modal="privacy"><i class="fas fa-chevron-right mr-2 text-success"></i><span data-i18n="footer.privacyPolicy">Política de Privacidad</span></a></li>
-                                <li class="mb-2"><a href="#" class="modal-link" data-modal="terms"><i class="fas fa-chevron-right mr-2 text-success"></i><span data-i18n="footer.termsOfService">Términos de Servicio</span></a></li>
-                                <li class="mb-2"><a href="#" class="modal-link" data-modal="faq"><i class="fas fa-chevron-right mr-2 text-success"></i><span data-i18n="footer.faq">Preguntas Frecuentes</span></a></li>
-                                <li><a href="#" class="modal-link" data-modal="blog"><i class="fas fa-chevron-right mr-2 text-success"></i><span data-i18n="footer.educationalBlog">Blog Educativo</span></a></li>
-                            </ul>
-                        </div>
-                    </div>
+            </div>
+            
+            <hr class="my-5 border-secondary">
+            
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-0">
+                        &copy; <span id="currentYear"></span> EDULINE.
+                        <span data-i18n="footer.rights">Todos los derechos reservados.</span>
+                        <span class="text-success ms-2" data-i18n="footer.tagline">Perfeccionando tu aprendizaje</span>
+                    </p>
                 </div>
-            </div>
-            
-            <div class="footer-quote text-center">
-                <p class="mb-0" data-i18n="footer.quote">"La educación no es preparación para la vida; la educación es la vida misma." - John Dewey</p>
-            </div>
-            
-            <div class="footer-bottom">
-                <p class="mb-0">
-                    &copy; <span id="currentYear"></span> EDULINE.
-                    <span data-i18n="footer.rights">Todos los derechos reservados.</span> |
-                    <span class="text-success" data-i18n="footer.tagline">Perfeccionando tu aprendizaje</span>
-                </p>
             </div>
         </div>
     </footer>
 
-    <!-- Modal para contenido dinámico -->
-    <div class="modal fade" id="dynamicModal" tabindex="-1" role="dialog" aria-labelledby="dynamicModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <!-- Botón de volver arriba -->
+    <button id="scrollToTop" class="btn btn-success position-fixed bottom-0 end-0 m-4 rounded-circle shadow-lg" style="display: none; width: 50px; height: 50px; z-index: 1000;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="dynamicModal" tabindex="-1" aria-labelledby="dynamicModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="dynamicModalTitle"></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body" id="dynamicModalContent">
-                    <!-- Contenido se cargará dinámicamente -->
-                </div>
+                <div class="modal-body" id="dynamicModalContent"></div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" data-i18n="modal.close">Cerrar</button>
-                </div>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-i18n="modal.close">Cerrar</button>
+                </div
             </div>
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="scripts.js"></script>
-    <script>
-        document.getElementById("currentYear").textContent = new Date().getFullYear();
-    </script>
 </body>
 </html>
-
-<!-- Agregar esto justo antes de cerrar </body> -->
-<script>
-    // Mejorar accesibilidad del menú
-    document.addEventListener('DOMContentLoaded', function() {
-        // Agregar aria-labels a los controles
-        const toggler = document.querySelector('.navbar-toggler');
-        if (toggler) {
-            toggler.setAttribute('aria-label', 'Abrir menú de navegación');
-        }
-        
-        // Mejorar navegación por teclado
-        const navItems = document.querySelectorAll('.nav-link');
-        navItems.forEach((item, index) => {
-            item.setAttribute('tabindex', '0');
-            
-            // Navegación con teclado
-            item.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    this.click();
-                }
-                
-                // Navegación con flechas
-                if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
-                    e.preventDefault();
-                    const next = navItems[index + 1] || navItems[0];
-                    next.focus();
-                }
-                
-                if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-                    e.preventDefault();
-                    const prev = navItems[index - 1] || navItems[navItems.length - 1];
-                    prev.focus();
-                }
-            });
-        });
-        
-        // Feedback visual para focus
-        document.addEventListener('focusin', function(e) {
-            if (e.target.classList.contains('btn') || e.target.classList.contains('nav-link')) {
-                e.target.classList.add('focus-visible');
-            }
-        });
-        
-        document.addEventListener('focusout', function(e) {
-            if (e.target.classList.contains('btn') || e.target.classList.contains('nav-link')) {
-                e.target.classList.remove('focus-visible');
-            }
-        });
-    });
-</script>
