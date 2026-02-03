@@ -1,9 +1,7 @@
-/* Variables CSS para consistencia */
 :root {
     --primary-color: #419e46;
     --primary-dark: #357634;
     --primary-light: #6bbf70;
-    --secondary-color: #41799e;
     --light-color: #f8f9fa;
     --dark-color: #333;
     --gray-color: #666;
@@ -11,7 +9,6 @@
     --transition: all 0.3s ease;
     --border-radius: 15px;
     
-    /* Variables para modo claro */
     --bg-color: #ffffff;
     --text-color: #333333;
     --card-bg: #ffffff;
@@ -20,7 +17,6 @@
     --section-bg: #f9f9f9;
     --border-color: rgba(0, 0, 0, 0.1);
     
-    /* Variables específicas para botones */
     --btn-light-bg: #ffffff;
     --btn-light-text: #333333;
     --btn-light-border: #dee2e6;
@@ -32,7 +28,6 @@
     --btn-outline-secondary-border: #6c757d;
 }
 
-/* Modo oscuro */
 body.dark-mode {
     --bg-color: #121212;
     --text-color: #f0f0f0;
@@ -43,7 +38,6 @@ body.dark-mode {
     --gray-color: #aaa;
     --border-color: rgba(255, 255, 255, 0.1);
     
-    /* Botones en modo oscuro */
     --btn-light-bg: #333333;
     --btn-light-text: #f0f0f0;
     --btn-light-border: #555555;
@@ -55,9 +49,6 @@ body.dark-mode {
     --btn-outline-secondary-border: #666666;
 }
 
-/* ============================================
-   ESTILOS GENERALES
-   ============================================ */
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
@@ -68,7 +59,6 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Margen solo a la izquierda y derecha */
 body {
     margin-left: 20px;
     margin-right: 20px;
@@ -81,7 +71,6 @@ body {
     }
 }
 
-/* Contenedor principal mejorado */
 .container-fluid {
     padding: 0 15px;
 }
@@ -92,9 +81,6 @@ body {
     padding: 0 20px;
 }
 
-/* ============================================
-   NAVBAR
-   ============================================ */
 .navbar {
     padding: 15px 0;
     transition: var(--transition);
@@ -146,9 +132,6 @@ body {
     width: 100%;
 }
 
-/* ============================================
-   SELECTORES DE IDIOMA Y TEMA
-   ============================================ */
 .language-selector {
     display: inline-block;
 }
@@ -188,11 +171,6 @@ body {
     border-color: var(--primary-color);
 }
 
-/* ============================================
-   SISTEMA DE BOTONES MEJORADO
-   ============================================ */
-
-/* Botón light (blanco) - Modo claro: fondo blanco, texto negro */
 .btn-light {
     background-color: var(--btn-light-bg) !important;
     color: var(--btn-light-text) !important;
@@ -205,7 +183,6 @@ body {
     border-color: var(--primary-color) !important;
 }
 
-/* Botón outline light - Siempre con borde y texto blanco */
 .btn-outline-light {
     background-color: var(--btn-outline-light-bg) !important;
     color: var(--btn-outline-light-text) !important;
@@ -218,7 +195,6 @@ body {
     border-color: white !important;
 }
 
-/* Botón outline secondary */
 .btn-outline-secondary {
     background-color: var(--btn-outline-secondary-bg) !important;
     color: var(--btn-outline-secondary-text) !important;
@@ -231,7 +207,6 @@ body {
     border-color: var(--primary-color) !important;
 }
 
-/* Botón success (primario) */
 .btn-success {
     background-color: var(--primary-color) !important;
     border-color: var(--primary-color) !important;
@@ -254,7 +229,6 @@ body {
     color: white !important;
 }
 
-/* Botón CTA especial */
 .btn-cta {
     background: white;
     color: var(--primary-color);
@@ -272,9 +246,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* ============================================
-   BANNER CON VIDEO
-   ============================================ */
 .video-banner {
     position: relative;
     overflow: hidden;
@@ -327,17 +298,11 @@ body {
     font-size: 4.5rem;
     font-weight: 800;
     margin-bottom: 20px;
-    animation: fadeInDown 1s ease;
 }
 
 .banner-content p {
     font-size: 1.8rem;
     margin-bottom: 30px;
-    animation: fadeInUp 1s ease 0.3s both;
-}
-
-.banner-cta {
-    animation: fadeIn 1s ease 0.6s both;
 }
 
 .title-container {
@@ -376,9 +341,6 @@ body {
     color: white;
 }
 
-/* ============================================
-   SECCIÓN DE INFORMACIÓN
-   ============================================ */
 .company-info {
     padding: 80px 0;
     background-color: var(--section-bg);
@@ -450,9 +412,6 @@ body {
     color: var(--text-color);
 }
 
-/* ============================================
-   CARRUSEL
-   ============================================ */
 .carousel-section {
     padding: 80px 0;
 }
@@ -521,9 +480,6 @@ body.dark-mode .carousel-caption {
     background-color: var(--primary-color);
 }
 
-/* ============================================
-   PLANES DE SUSCRIPCIÓN
-   ============================================ */
 .subscription-plans {
     padding: 80px 0;
     background: linear-gradient(135deg, var(--section-bg) 0%, var(--card-bg) 100%);
@@ -636,9 +592,6 @@ body.dark-mode .plan-highlight::before {
     color: var(--primary-color);
 }
 
-/* ============================================
-   SECCIÓN CTA
-   ============================================ */
 .section-cta {
     padding: 80px 0;
 }
@@ -716,9 +669,6 @@ body.dark-mode .plan-highlight::before {
     font-weight: 600;
 }
 
-/* ============================================
-   FORMULARIOS
-   ============================================ */
 .form-control {
     background-color: var(--card-bg);
     border-color: var(--border-color);
@@ -733,9 +683,6 @@ body.dark-mode .plan-highlight::before {
     box-shadow: 0 0 0 0.2rem rgba(65, 158, 70, 0.25);
 }
 
-/* ============================================
-   MODAL
-   ============================================ */
 .modal-content {
     background: var(--card-bg);
     color: var(--text-color);
@@ -759,36 +706,11 @@ body.dark-mode .plan-highlight::before {
     overflow-y: auto;
 }
 
-.modal-body h3 {
-    color: var(--primary-color);
-    margin-top: 25px;
-    margin-bottom: 15px;
-}
-
-.modal-body p {
-    line-height: 1.6;
-    margin-bottom: 15px;
-    color: var(--text-color);
-}
-
-.modal-body ul {
-    padding-left: 20px;
-    margin-bottom: 20px;
-}
-
-.modal-body li {
-    margin-bottom: 10px;
-    color: var(--text-color);
-}
-
 .modal-footer {
     border-top: 1px solid var(--border-color);
     padding: 20px 30px;
 }
 
-/* ============================================
-   FOOTER
-   ============================================ */
 .footer {
     background: var(--footer-bg);
     color: white;
@@ -868,58 +790,15 @@ body.dark-mode .plan-highlight::before {
     color: #888;
 }
 
-/* ============================================
-   ANIMACIONES
-   ============================================ */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
 }
 
 .floating {
     animation: float 3s ease-in-out infinite;
 }
 
-.pulse {
-    animation: pulse 2s ease-in-out infinite;
-}
-
-/* ============================================
-   UTILIDADES ESPECÍFICAS PARA MODO OSCURO
-   ============================================ */
 body.dark-mode .text-dark {
     color: var(--text-color) !important;
 }
@@ -932,16 +811,13 @@ body.dark-mode .text-light {
     color: var(--text-color) !important;
 }
 
-/* Asegurar que todos los textos sean visibles */
 body.dark-mode p:not(.footer p):not(.banner-content p):not(.cta-box p),
 body.dark-mode li:not(.footer li),
 body.dark-mode span:not(.footer span):not(.video-controls span):not(.banner-content span):not(.cta-box span) {
     color: var(--text-color) !important;
 }
 
-/* ============================================
-   RESPONSIVE
-   ============================================ */
+/* RESPONSIVE PARA TABLET (768px - 992px) */
 @media (max-width: 992px) {
     .banner-content h1 {
         font-size: 3.5rem;
@@ -963,8 +839,32 @@ body.dark-mode span:not(.footer span):not(.video-controls span):not(.banner-cont
         transform: scale(1);
         margin-top: 0;
     }
+    
+    .plan-highlight::before {
+        right: -25px;
+        padding: 4px 35px;
+        font-size: 0.85rem;
+    }
+    
+    .video-banner {
+        height: 75vh;
+        min-height: 500px;
+    }
+    
+    .navbar-nav .nav-item {
+        margin: 5px 0;
+    }
+    
+    .navbar-collapse {
+        background: var(--navbar-bg);
+        border-radius: 15px;
+        padding: 15px;
+        margin-top: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
 }
 
+/* RESPONSIVE PARA MÓVILES (576px - 767px) */
 @media (max-width: 768px) {
     body {
         margin-left: 10px;
@@ -986,28 +886,108 @@ body.dark-mode span:not(.footer span):not(.video-controls span):not(.banner-cont
     .video-banner {
         height: 70vh;
         min-height: 400px;
+        border-radius: 0 0 20px 20px;
     }
     
     .company-info, .subscription-plans, .carousel-section, .section-cta {
         padding: 60px 0;
+        border-radius: 20px;
     }
     
     .feature-card, .plan-card {
         margin-bottom: 30px;
+        padding: 25px 20px;
+    }
+    
+    .feature-card:hover, .plan-card:hover {
+        transform: translateY(-10px);
     }
     
     .cta-box {
         padding: 40px 20px;
+        border-radius: 20px;
     }
     
     .language-selector, .theme-toggle {
         margin-bottom: 10px;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .language-selector select, .theme-toggle button {
+        width: 100%;
+        max-width: 200px;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .carousel-caption {
+        padding: 15px;
+        left: 5%;
+        right: 5%;
+        bottom: 15%;
+    }
+    
+    .carousel-caption h3 {
+        font-size: 1.8rem;
+    }
+    
+    .carousel-control-prev, .carousel-control-next {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .carousel-control-prev {
+        left: 15px;
+    }
+    
+    .carousel-control-next {
+        right: 15px;
+    }
+    
+    .plan-header, .plan-body {
+        padding: 30px 20px;
+    }
+    
+    .plan-price {
+        font-size: 2.5rem;
+    }
+    
+    .plan-highlight::before {
+        right: -20px;
+        padding: 4px 30px;
+        font-size: 0.8rem;
+        top: 15px;
+    }
+    
+    .btn-lg {
+        padding: 15px 30px;
+        font-size: 1rem;
+    }
+    
+    .form-control-lg {
+        padding: 15px 20px;
+        font-size: 1rem;
+    }
+    
+    .modal-dialog {
+        margin: 10px;
+    }
+    
+    .modal-content {
+        border-radius: 15px;
     }
 }
 
+/* RESPONSIVE PARA MÓVILES PEQUEÑOS (0 - 575px) */
 @media (max-width: 576px) {
     .banner-content h1 {
         font-size: 2rem;
+    }
+    
+    .banner-content p {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
     }
     
     .video-controls {
@@ -1015,13 +995,599 @@ body.dark-mode span:not(.footer span):not(.video-controls span):not(.banner-cont
         right: 10px;
     }
     
-    .carousel-caption {
-        padding: 15px;
-        left: 5%;
-        right: 5%;
+    .video-controls button {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
     }
     
     .carousel-caption h3 {
         font-size: 1.5rem;
     }
+    
+    .carousel-caption p {
+        font-size: 0.9rem;
+    }
+    
+    .section-title h2 {
+        font-size: 2rem;
+    }
+    
+    .section-title p {
+        font-size: 1rem;
+    }
+    
+    .feature-card h3, .plan-header h3 {
+        font-size: 1.5rem;
+    }
+    
+    .feature-card p, .plan-features li {
+        font-size: 0.9rem;
+    }
+    
+    .plan-card {
+        margin: 0 5px 25px 5px;
+    }
+    
+    .plan-highlight {
+        transform: none;
+        margin-top: 0;
+    }
+    
+    .plan-highlight::before {
+        right: -15px;
+        padding: 3px 20px;
+        font-size: 0.7rem;
+        top: 10px;
+    }
+    
+    .cta-box h3 {
+        font-size: 1.8rem;
+    }
+    
+    .cta-box p {
+        font-size: 1rem;
+    }
+    
+    .banner-cta .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .banner-cta .btn:last-child {
+        margin-bottom: 0;
+    }
+    
+    .footer {
+        padding: 50px 0 20px;
+    }
+    
+    .footer .row > div {
+        margin-bottom: 30px;
+    }
+    
+    .social-icons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .social-icons a {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .footer-quote {
+        font-size: 1.1rem;
+        padding: 20px 0;
+        margin-top: 30px;
+    }
+    
+    .email-form .btn {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+    }
+    
+    .navbar-brand img {
+        height: 60px;
+    }
+    
+    .navbar-toggler {
+        padding: 5px 10px;
+        font-size: 1rem;
+    }
+}
+
+/* RESPONSIVE EXTRA PEQUEÑO (0 - 400px) */
+@media (max-width: 400px) {
+    .banner-content h1 {
+        font-size: 1.6rem;
+    }
+    
+    .banner-content p {
+        font-size: 0.9rem;
+    }
+    
+    .video-banner {
+        height: 60vh;
+        min-height: 350px;
+    }
+    
+    .title-container {
+        padding: 15px;
+    }
+    
+    .feature-card, .plan-card {
+        padding: 20px 15px;
+    }
+    
+    .plan-price {
+        font-size: 2rem;
+    }
+    
+    .plan-features li {
+        padding: 8px 0;
+        font-size: 0.85rem;
+    }
+    
+    .cta-box {
+        padding: 30px 15px;
+    }
+    
+    .cta-box h3 {
+        font-size: 1.5rem;
+    }
+    
+    .btn-lg {
+        padding: 12px 20px;
+        font-size: 0.85rem;
+    }
+    
+    .form-control-lg {
+        padding: 12px 18px;
+        font-size: 0.9rem;
+    }
+    
+    .modal-header, .modal-body, .modal-footer {
+        padding: 15px;
+    }
+    
+    .language-selector select, .theme-toggle button {
+        max-width: 150px;
+        padding: 5px 10px;
+        font-size: 0.9rem;
+    }
+    
+    .plan-highlight::before {
+        display: none;
+    }
+}
+
+/* ORIENTACIÓN HORIZONTAL EN MÓVILES */
+@media (max-height: 600px) and (orientation: landscape) {
+    .video-banner {
+        height: 100vh;
+        min-height: 400px;
+    }
+    
+    .banner-content {
+        top: 45%;
+    }
+    
+    .banner-content h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+    
+    .banner-content p {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+    
+    .title-container {
+        padding: 15px 25px;
+    }
+    
+    .banner-cta {
+        margin-top: 20px;
+    }
+    
+    .banner-cta .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* AJUSTES PARA TIPOGRAFÍA EN MÓVILES */
+@media (max-width: 768px) {
+    h1, .h1 {
+        font-size: 2.2rem !important;
+    }
+    
+    h2, .h2 {
+        font-size: 1.8rem !important;
+    }
+    
+    h3, .h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    .display-1 { font-size: 3rem !important; }
+    .display-2 { font-size: 2.5rem !important; }
+    .display-3 { font-size: 2rem !important; }
+    .display-4 { font-size: 1.8rem !important; }
+    
+    .lead {
+        font-size: 1.1rem !important;
+    }
+}
+
+/* MEJORAS ESPECÍFICAS PARA BOTONES EN MÓVILES */
+@media (max-width: 768px) {
+    /* Botones principales - más grandes y fáciles de tocar */
+    .btn {
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+    
+    .btn-lg {
+        padding: 18px 25px !important;
+        font-size: 1.1rem !important;
+        min-height: 60px;
+        border-radius: 12px !important;
+    }
+    
+    .btn-success, .btn-outline-success, .btn-light, .btn-outline-light {
+        transition: all 0.2s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    /* Efecto táctil para botones */
+    .btn:active {
+        transform: scale(0.98);
+        transition: transform 0.1s;
+    }
+    
+    /* Separación entre botones */
+    .banner-cta .btn {
+        margin-bottom: 15px !important;
+        width: 100%;
+        max-width: 350px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    .banner-cta .btn:last-child {
+        margin-bottom: 0 !important;
+    }
+    
+    /* Botones de planes más accesibles */
+    .plan-card .btn {
+        min-height: 55px;
+        font-size: 1.05rem;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+    
+    /* Botones de contacto */
+    .cta-box .btn {
+        min-height: 55px;
+        font-weight: 600;
+    }
+    
+    /* Botones sociales más grandes */
+    .social-icons a {
+        width: 48px !important;
+        height: 48px !important;
+        font-size: 1.3rem !important;
+    }
+    
+    /* Efecto visual para botones activos */
+    .btn:focus {
+        outline: 3px solid rgba(65, 158, 70, 0.4);
+        outline-offset: 2px;
+    }
+}
+
+@media (max-width: 576px) {
+    .btn-lg {
+        padding: 16px 20px !important;
+        font-size: 1rem !important;
+        min-height: 55px;
+    }
+    
+    .btn {
+        min-height: 48px;
+    }
+    
+    .plan-card .btn {
+        min-height: 50px;
+        font-size: 1rem;
+    }
+    
+    /* Botones de navegación en footer */
+    .footer .btn {
+        min-height: 45px;
+        padding: 12px 20px !important;
+    }
+}
+
+/* MEJORAS PARA EL MENÚ DE NAVBAR EN MÓVILES */
+@media (max-width: 991px) {
+    /* Estilos para el menú colapsable */
+    .navbar-collapse {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        height: 100vh;
+        background: var(--navbar-bg) !important;
+        padding: 80px 20px 30px !important;
+        transition: right 0.4s ease-in-out;
+        z-index: 1040;
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+        overflow-y: auto;
+        border-radius: 0;
+        margin-top: 0;
+    }
+    
+    .navbar-collapse.show {
+        right: 0;
+    }
+    
+    /* Overlay de fondo */
+    .navbar-collapse::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    
+    .navbar-collapse.show::before {
+        opacity: 1;
+    }
+    
+    /* Ajustes para items del menú */
+    .navbar-nav {
+        width: 100%;
+    }
+    
+    .navbar-nav .nav-item {
+        margin: 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .navbar-nav .nav-item:last-child {
+        border-bottom: none;
+        margin-top: 20px;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 18px 15px !important;
+        font-size: 1.1rem;
+        color: var(--text-color) !important;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        transition: all 0.2s ease;
+    }
+    
+    .navbar-nav .nav-link:hover {
+        background-color: rgba(65, 158, 70, 0.1);
+        padding-left: 20px !important;
+        color: var(--primary-color) !important;
+    }
+    
+    .navbar-nav .nav-link::before {
+        display: none;
+    }
+    
+    /* Botón "Comenzar Ahora" en menú móvil */
+    .navbar-nav .btn-outline-success {
+        width: 100%;
+        padding: 18px !important;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 12px;
+        border-width: 2px;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    /* Iconos para items del menú */
+    .navbar-nav .nav-link i {
+        margin-right: 12px;
+        width: 25px;
+        text-align: center;
+        font-size: 1.2rem;
+        color: var(--primary-color);
+    }
+    
+    /* Botón de cierre del menú */
+    .navbar-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        font-size: 1.8rem;
+        color: var(--text-color);
+        z-index: 1050;
+        padding: 10px;
+        cursor: pointer;
+    }
+    
+    /* Ajustar el toggler original */
+    .navbar-toggler {
+        z-index: 1050;
+        border: none;
+        padding: 8px 10px;
+        order: 3;
+        margin-left: auto;
+    }
+    
+    .navbar-toggler:focus {
+        outline: 3px solid rgba(65, 158, 70, 0.4);
+        outline-offset: 2px;
+        box-shadow: none;
+    }
+    
+    .navbar-toggler-icon {
+        width: 28px;
+        height: 3px;
+        background-color: var(--text-color);
+        position: relative;
+        transition: all 0.3s;
+    }
+    
+    .navbar-toggler-icon::before,
+    .navbar-toggler-icon::after {
+        content: '';
+        position: absolute;
+        width: 28px;
+        height: 3px;
+        background-color: var(--text-color);
+        left: 0;
+        transition: all 0.3s;
+    }
+    
+    .navbar-toggler-icon::before {
+        top: -8px;
+    }
+    
+    .navbar-toggler-icon::after {
+        bottom: -8px;
+    }
+    
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+        background-color: transparent;
+    }
+    
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+    
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+        transform: rotate(-45deg);
+        bottom: 0;
+    }
+    
+    /* Ajustar contenedor de navbar en móviles */
+    .navbar .container-custom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    /* Selector de idioma y tema en móviles */
+    .navbar .language-selector,
+    .navbar .theme-toggle {
+        order: 2;
+        margin-right: 10px;
+    }
+    
+    .navbar .language-selector select,
+    .navbar .theme-toggle button {
+        padding: 8px 15px;
+        font-size: 0.95rem;
+        min-height: 40px;
+    }
+    
+    /* Logo en móviles */
+    .navbar-brand {
+        order: 1;
+    }
+    
+    .navbar-brand img {
+        height: 60px;
+    }
+    
+    /* Prevenir scroll cuando el menú está abierto */
+    body.menu-open {
+        overflow: hidden;
+    }
+}
+
+/* MEJORAS ESPECÍFICAS PARA MÓVILES MUY PEQUEÑOS */
+@media (max-width: 400px) {
+    .navbar-collapse {
+        width: 100%;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 16px 12px !important;
+        font-size: 1rem;
+    }
+    
+    .navbar-nav .btn-outline-success {
+        padding: 16px !important;
+        font-size: 1rem;
+    }
+    
+    .navbar-close {
+        top: 15px;
+        right: 15px;
+        font-size: 1.5rem;
+    }
+    
+    .navbar-brand img {
+        height: 50px;
+    }
+}
+
+/* MEJORAS DE ACCESIBILIDAD PARA BOTONES */
+.btn {
+    -webkit-tap-highlight-color: rgba(65, 158, 70, 0.3);
+    user-select: none;
+}
+
+.btn:active {
+    opacity: 0.9;
+}
+
+/* ANIMACIONES PARA MENÚ */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.navbar-collapse.show {
+    animation: slideInRight 0.3s ease forwards;
+}
+
+.navbar-collapse:not(.show) {
+    animation: slideOutRight 0.3s ease forwards;
 }

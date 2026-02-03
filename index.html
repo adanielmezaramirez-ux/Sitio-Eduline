@@ -448,3 +448,55 @@
     </script>
 </body>
 </html>
+
+<!-- Agregar esto justo antes de cerrar </body> -->
+<script>
+    // Mejorar accesibilidad del menú
+    document.addEventListener('DOMContentLoaded', function() {
+        // Agregar aria-labels a los controles
+        const toggler = document.querySelector('.navbar-toggler');
+        if (toggler) {
+            toggler.setAttribute('aria-label', 'Abrir menú de navegación');
+        }
+        
+        // Mejorar navegación por teclado
+        const navItems = document.querySelectorAll('.nav-link');
+        navItems.forEach((item, index) => {
+            item.setAttribute('tabindex', '0');
+            
+            // Navegación con teclado
+            item.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+                
+                // Navegación con flechas
+                if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    const next = navItems[index + 1] || navItems[0];
+                    next.focus();
+                }
+                
+                if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    const prev = navItems[index - 1] || navItems[navItems.length - 1];
+                    prev.focus();
+                }
+            });
+        });
+        
+        // Feedback visual para focus
+        document.addEventListener('focusin', function(e) {
+            if (e.target.classList.contains('btn') || e.target.classList.contains('nav-link')) {
+                e.target.classList.add('focus-visible');
+            }
+        });
+        
+        document.addEventListener('focusout', function(e) {
+            if (e.target.classList.contains('btn') || e.target.classList.contains('nav-link')) {
+                e.target.classList.remove('focus-visible');
+            }
+        });
+    });
+</script>
